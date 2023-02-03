@@ -1,19 +1,25 @@
 {
   "name": "project",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "run file.ts",
+  "main": "TMS",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "hw2:test": "ts-node hw2/index.ts"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LenaMakarenko/tmsProject.git"
   },
-  "author": "",
+  "author": "LenaMakarenko",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/LenaMakarenko/tmsProject/issues"
   },
-  "homepage": "https://github.com/LenaMakarenko/tmsProject#readme"
+  "homepage": "https://github.com/LenaMakarenko/tmsProject#readme",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.1"
+  }
 }
