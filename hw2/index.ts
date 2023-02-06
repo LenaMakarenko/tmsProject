@@ -21,12 +21,24 @@ let userName_1 = +userName;
 console.log (typeof userName_1);
 let userName_2 = Number (userName);
 console.log (typeof userName_2);
-///// Task 4
+// #### Task 4
 let a = 1;
 let b = 2;
 let c = 'white bears';
 let sum = a + b + c;
 console.log (String (a) + b + ' ' + c);
+// ### Task 5
+let nameT5_1: string = 'access';
+let nameT5_2: string = 'marine';
+let nameT5_3: string = 'ice';
+let nameT5_4: string = 'garden';
+let nameT5_5: string = 'joy';
+let lengthWords: number = (nameT5_1 + nameT5_2 + nameT5_3 + nameT5_4 + nameT5_5).length;
+console.log (lengthWords);
+// ######## Task 6
+  
+
+
 
 
 
