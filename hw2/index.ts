@@ -54,8 +54,20 @@ if (height > width) {
     console.log (height)
 } else console.log (width);
 /// Task 8
+for (let i = 1; i <= 20; i++) {
+    if (i % 3 === 0) {
+    console.log (i);
+    }
+};
+//// Task 9
+let key: boolean = true;
+let documents: boolean = true;
+let pen: boolean = true;
+let apple: boolean = false;
+let orange: boolean = true;
 
-
+let shouldGoToWork: boolean = key && documents && pen && (apple || orange);
+console.log (shouldGoToWork); 
 
 
 
