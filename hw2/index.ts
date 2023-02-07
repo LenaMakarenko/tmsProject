@@ -36,8 +36,24 @@ let nameT5_5: string = 'joy';
 let lengthWords: number = (nameT5_1 + nameT5_2 + nameT5_3 + nameT5_4 + nameT5_5).length;
 console.log (lengthWords);
 // ######## Task 6
-  
+let k = 'true';
+let l = false;
+let m = 17;
+let n = undefined;
+let o = null;
+console.log (typeof k);
+console.log (typeof l);
+console.log (typeof m);
+console.log (typeof n);
+console.log (typeof o);
 
+/// Task 7
+let height = 15;
+let width = 20;
+if (height > width) {
+    console.log (height)
+} else console.log (width);
+/// Task 8
 
 
 
