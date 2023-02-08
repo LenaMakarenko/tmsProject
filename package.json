@@ -4,7 +4,7 @@
   "description": "run file.ts",
   "main": "TMS",
   "scripts": {
-    "hw2:test": "ts-node hw2/index.ts"
+    "hw2:test": "ts-node hw2/index.ts",
     "hw3:test": "ts-node hw2/index3.ts"
   },
   "repository": {
