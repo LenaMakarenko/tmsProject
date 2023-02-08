@@ -77,7 +77,14 @@ if (variableFizzBuzz % 5 === 0 && variableFizzBuzz % 3 === 0) {
     console.log ('Fizz')
 };
 //// Task 11
-let 
+let customsAge: number = 13;
+if (customsAge > 18) {
+    console.log ("Let's go drink some beer")
+} else if (customsAge <= 18 && customsAge >= 16) {
+    console.log ("You can buy some smokes, but don't tell your mother")
+} else (console.log ("Better drink cola"));
+
+
 
 
 
