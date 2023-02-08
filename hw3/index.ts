@@ -100,10 +100,3 @@ switch (stream) {
     default:
         console.log ("Unknown action. Please, try again!");
 }
-
-
-
-
-
-
-
