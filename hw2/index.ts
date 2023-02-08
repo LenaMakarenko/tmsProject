@@ -65,9 +65,19 @@ let documents: boolean = true;
 let pen: boolean = true;
 let apple: boolean = false;
 let orange: boolean = true;
-
 let shouldGoToWork: boolean = key && documents && pen && (apple || orange);
 console.log (shouldGoToWork); 
+// Task 10
+let variableFizzBuzz: number = 25;
+if (variableFizzBuzz % 5 === 0 && variableFizzBuzz % 3 === 0) {
+    console.log ('FizzBuzz') 
+} else if (variableFizzBuzz % 3 === 0) {
+    console.log ('Buzz')
+} else if (variableFizzBuzz % 5 === 0 ) {
+    console.log ('Fizz')
+};
+//// Task 11
+let 
 
 
 
