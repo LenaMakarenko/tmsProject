@@ -42,3 +42,32 @@ console.log (stringOfTaskhw4.substring(2,7));
 console.log (stringOfTaskhw4.slice (-11,18));
 //// Task 6
 console.log (stringOfTaskhw4.split(" "));
+/// Task 7
+const secondStringOfTaskhw4: string = " I learn TypeScript!";
+console.log (secondStringOfTaskhw4.trim( ));
+// Task 8
+let someNumber: number = 8.829734872948;
+console.log (someNumber.toFixed(3));
+//// Task 9
+let newSomeNumber: number = 15.156;
+if (Number.isInteger(newSomeNumber)) {
+    console.log (newSomeNumber)
+} 
+else {
+    console.log (newSomeNumber.toFixed(0))
+} 
+/// Task 10
+let secondNewSomeNumber: number = 123.65465
+console.log (Math.floor(secondNewSomeNumber));
+console.log (Math.ceil(secondNewSomeNumber));
+console.log (Math.round(secondNewSomeNumber));
+// Task 11
+let someAnyString: number = 2;
+let variableOFDegree: number = 3;
+console.log (Math.pow (someAnyString,variableOFDegree));
+// Task 12
+let writeAnyRange_min: number = Math.ceil(1.5);
+let writeAnyRange_max: number = Math.floor(32.2);
+console.log (Math.floor(Math.random() * (writeAnyRange_max - writeAnyRange_min )) + writeAnyRange_min);
+// Task 13
+console.log (Math.random() * (writeAnyRange_max - writeAnyRange_min) + writeAnyRange_min);
