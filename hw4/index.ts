@@ -71,3 +71,7 @@ let writeAnyRange_max: number = Math.floor(32.2);
 console.log (Math.floor(Math.random() * (writeAnyRange_max - writeAnyRange_min )) + writeAnyRange_min);
 // Task 13
 console.log (Math.random() * (writeAnyRange_max - writeAnyRange_min) + writeAnyRange_min);
+/// Task 14
+const todayDate: Date = new Date();
+console.log ("Current date: " + "<" + todayDate.getMonth() + ">" + "<" + todayDate.getFullYear() + ">" +"<" + todayDate.getDate() + ">");
+console.log ("Текущее время:" + todayDate.toLocaleTimeString());
