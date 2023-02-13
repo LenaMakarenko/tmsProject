@@ -1,9 +1,9 @@
 /// task 1
 let usersName: string = "John";
 let usersSurname: string = "Terry";
-let usersgreetings = 'Hello, ' + usersName.toUpperCase() + ' ' + usersSurname.toLowerCase() + ' ;';
+let usersgreetings = 'Hello, ' + usersName.toUpperCase() + ' ' + usersSurname.toLowerCase() + ';';
 console.log (usersgreetings.repeat(5));
- /// task 2
+/// task 2
 let someString: string = "I learn TypeScript!";
 let userInputData: string = "TypeScript";
 switch (userInputData) {
@@ -73,5 +73,5 @@ console.log (Math.floor(Math.random() * (writeAnyRange_max - writeAnyRange_min )
 console.log (Math.random() * (writeAnyRange_max - writeAnyRange_min) + writeAnyRange_min);
 /// Task 14
 const todayDate: Date = new Date();
-console.log ("Current date: " + "<" + todayDate.getMonth() + ">" + "<" + todayDate.getFullYear() + ">" +"<" + todayDate.getDate() + ">");
-console.log ("Текущее время:" + todayDate.toLocaleTimeString());
+let month = todayDate.getMonth() + 1;
+console.log ("Current date: " + "<" + month + ">" + "/" + "<" + todayDate.getFullYear() + ">" + "/" +"<" + todayDate.getDate() + ">." + "Текущее время:" + todayDate.toLocaleTimeString());
