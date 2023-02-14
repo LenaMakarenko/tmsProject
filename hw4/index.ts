@@ -5,25 +5,16 @@ let usersgreetings = 'Hello, ' + usersName.toUpperCase() + ' ' + usersSurname.to
 console.log (usersgreetings.repeat(5));
 /// task 2
 let someString: string = "I learn TypeScript!";
-let userInputData: string = "TypeScript";
-switch (userInputData) {
-    case "I":
-         console.log (someString.indexOf ("I"));
-        break;
-    case "learn":
-         console.log (someString.indexOf ("learn"));
-         break;
-    case "TypeScript":
-        console.log (someString.indexOf ("TypeScript"))
-        break;
-    default:
-        console.log ('There is no such substring in the original string!');
+let userInputData: string = "I";
+if (someString.includes(userInputData)) {
+    console.log (someString.indexOf(userInputData))
+} else { console.log ('There is no such substring in the original string!');
 }
 // Task 3
 let secondSomeString: string = "Inspiration";
 let lengthSecondSomeString:number = secondSomeString.length
 let usersvariableOfSymbolPosition: number = 12;
-if (usersvariableOfSymbolPosition <= lengthSecondSomeString) {
+if (usersvariableOfSymbolPosition < lengthSecondSomeString) {
     console.log (secondSomeString.charAt(usersvariableOfSymbolPosition))
 } else {
     console.log ("You are beyond the string length")
@@ -31,7 +22,7 @@ if (usersvariableOfSymbolPosition <= lengthSecondSomeString) {
 //// Task 4
 let thirdSomeString: string = "Tasty and point."
 let searchPoint: boolean = thirdSomeString.endsWith(".");
-if (searchPoint === true) {
+if (searchPoint) {
     console.log ("We have a finished sentence")
 } else {
     console.log ("There is a dot missed.")
@@ -63,8 +54,8 @@ console.log (Math.ceil(secondNewSomeNumber));
 console.log (Math.round(secondNewSomeNumber));
 // Task 11
 let someAnyString: number = 2;
-let variableOFDegree: number = 3;
-console.log (Math.pow (someAnyString,variableOFDegree));
+let variableOfDegree: number = 3;
+console.log (Math.pow (someAnyString,variableOfDegree));
 // Task 12
 let writeAnyRange_min: number = Math.ceil(1.5);
 let writeAnyRange_max: number = Math.floor(32.2);
