@@ -74,4 +74,4 @@ console.log (Math.random() * (writeAnyRange_max - writeAnyRange_min) + writeAnyR
 /// Task 14
 const todayDate: Date = new Date();
 let month = todayDate.getMonth() + 1;
-console.log ("Current date: " + "<" + month + ">" + "/" + "<" + todayDate.getFullYear() + ">" + "/" +"<" + todayDate.getDate() + ">." + "Текущее время:" + todayDate.toLocaleTimeString());
+console.log ("Current date: " + "<" + month + ">" + "/" + "<" + todayDate.getFullYear() + ">" + "/" +"<" + todayDate.getDate() + ">." + "Current time:" + todayDate.toLocaleTimeString());
