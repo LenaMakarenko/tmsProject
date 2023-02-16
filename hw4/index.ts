@@ -57,11 +57,11 @@ let someAnyString: number = 2;
 let variableOfDegree: number = 3;
 console.log (Math.pow (someAnyString,variableOfDegree));
 // Task 12
-let writeAnyRange_min: number = Math.ceil(1.5);
-let writeAnyRange_max: number = Math.floor(32.2);
-console.log (Math.floor(Math.random() * (writeAnyRange_max - writeAnyRange_min )) + writeAnyRange_min);
+let usersVariableMin: number = Math.ceil(1.5);
+let usersVariableMax: number = Math.floor(32.2);
+console.log (Math.floor(Math.random() * (usersVariableMax - usersVariableMin)) + usersVariableMin);
 // Task 13
-console.log (Math.random() * (writeAnyRange_max - writeAnyRange_min) + writeAnyRange_min);
+console.log (Math.random() * (usersVariableMax - usersVariableMin) + usersVariableMin);
 /// Task 14
 const todayDate: Date = new Date();
 let month = todayDate.getMonth() + 1;
