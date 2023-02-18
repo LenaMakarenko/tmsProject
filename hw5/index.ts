@@ -5,8 +5,10 @@
     }
     getSum(100);}
     ///// Task 2
+    let interestRatePerYear: number = 0.17;
+    let numberOfYears: number = 5;
     function overpaymentSum (x: number): void {
-    let result = x * 0.17 * 5
+    let result = x * interestRatePerYear * numberOfYears 
     console.log (result)
     }
     overpaymentSum (100);
@@ -23,9 +25,15 @@
             sum += Number (variet [i]);
         } console.log (sum)
     }
-    getSumNumbers (30004)
+    getSumNumbers (2021)
     /// Task 5
     function getSum(a: number, b: number) {
         console.log ((a  + b) * (b - a + 1) / 2); 
     }
     getSum (1, 2);
+    //// Task 6
+    const foo = () => console.log ("foo");
+    const boo = () => console.log ("boo");
+    function fooboo (z:boolean, foo: any, boo: any): any {
+    !!z ? foo() : boo()}
+    fooboo(true, foo, boo)
