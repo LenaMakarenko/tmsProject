@@ -28,12 +28,13 @@
     getSumNumbers (2021)
     /// Task 5
     function getSum(a: number, b: number) {
-        console.log ((a  + b) * (b - a + 1) / 2); 
+        if (a < b ) { console.log ((a  + b) * (b - a + 1) / 2) }
+        else { console.log ((b  + a ) * (a - b + 1) / 2) } 
     }
-    getSum (1, 2);
+    getSum (1, -2);
     //// Task 6
     const foo = () => console.log ("foo");
     const boo = () => console.log ("boo");
     function fooboo (z:boolean, foo: any, boo: any): any {
-    !!z ? foo() : boo()}
+    z ? foo() : boo()}
     fooboo(true, foo, boo)
