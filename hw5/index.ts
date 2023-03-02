@@ -28,9 +28,8 @@
     getSumNumbers (2021)
     /// Task 5
     function getSum(a: number, b: number) {
-        if (a < b ) { console.log ((a  + b) * (b - a + 1) / 2) }
-        else { console.log ((b  + a ) * (a - b + 1) / 2) } 
-    }
+        console.log ((a  + b) * (Math.abs(a - b) + 1) / 2)
+}
     getSum (1, -2);
     //// Task 6
     const foo = () => console.log ("foo");
