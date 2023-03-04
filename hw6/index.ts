@@ -43,3 +43,48 @@ for (let key in student) {
 for (let key in student) {
   console.log (student[key])
 }
+/// Task 4
+type ColorsType = {
+    'ru pum pu ru rum': {
+        red: string;
+        green: string;
+        blue: string
+    }
+}
+const colors: ColorsType = {
+  'ru pum pu ru rum': {
+    red: 'reddish',
+    green: 'greenish',
+    blue: 'blueish'
+},
+}
+console.log( colors["ru pum pu ru rum"].red, 
+colors["ru pum pu ru rum"].blue)
+//// Task 5 
+let salaries: any = {
+    andrey: 500,
+    sveta: 413,
+    anton: 987,
+    andrei: 664,
+    alexandra: 199
+}
+let sumSalaries = 0;
+for (let key in salaries) {
+    sumSalaries += salaries[key] / 5;
+}
+console.log (sumSalaries);
+////// Task 6
+let building = {
+    foundation: 1997,
+    country: 'USA',
+    city: 'New Jersey',
+    generalInfo: function(): string {
+  return `This building was found in ${this.foundation} year in ${this.country}, ${this.city}.`
+    },
+    getDescriptionTextLength: function() : any {
+   let resultString: string = this.generalInfo();
+   return resultString.length
+    }
+}
+console.log (building.generalInfo());
+console.log (building.getDescriptionTextLength());
