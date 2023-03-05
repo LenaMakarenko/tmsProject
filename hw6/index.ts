@@ -65,9 +65,10 @@ let salaries: any = {
     andrei: 664,
     alexandra: 199,
 }
+let staff = Object.keys(salaries).length;
 let sumSalaries = 0
 for (let key in salaries) {
-    sumSalaries += salaries[key] / 5
+    sumSalaries += salaries[key] / staff
 }
 console.log(sumSalaries)
 ////// Task 6
