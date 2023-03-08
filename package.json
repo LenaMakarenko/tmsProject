@@ -7,7 +7,8 @@
     "hw2:test": "ts-node hw2/index.ts",
     "hw3:test": "ts-node hw3/index.ts",
     "hw4:test": "ts-node hw4/index.ts",
-    "hw5:test": "ts-node hw5/index.ts"
+    "hw5:test": "ts-node hw5/index.ts",
+    "hw6:test": "ts-node hw6/index.ts"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
+    "prettier": "^2.8.4",
     "ts-node": "^10.9.1"
   }
 }
