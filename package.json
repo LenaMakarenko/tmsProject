@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/LenaMakarenko/tmsProject#readme",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.54.0",
     "typescript": "^4.9.5"
   },
   "dependencies": {
