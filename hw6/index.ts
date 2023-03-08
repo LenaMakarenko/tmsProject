@@ -18,8 +18,7 @@ const doctor1: doctor = {
     'is highest category': true,
 }
 function searchForAKeySpeciality(object: any): any {
-    if ('speciality' in object) console.log('true')
-    else console.log(false)
+    console.log('speciality' in object)
 }
 searchForAKeySpeciality(doctor1)
 searchForAKeySpeciality(newYorker1)
@@ -65,10 +64,10 @@ let salaries: any = {
     andrei: 664,
     alexandra: 199,
 }
-let staff = Object.keys(salaries).length;
+let staffNumber = Object.keys(salaries).length;
 let sumSalaries = 0
 for (let key in salaries) {
-    sumSalaries += salaries[key] / staff
+    sumSalaries += salaries[key] / staffNumber
 }
 console.log(sumSalaries)
 ////// Task 6
@@ -81,8 +80,8 @@ let building = {
     },
     getDescriptionTextLength: function (): any {
         let resultString: string = this.generalInfo()
-        return resultString.length
+        console.log (resultString.length)
     },
 }
-console.log(building.generalInfo())
-console.log(building.getDescriptionTextLength())
+console.log (building.generalInfo());
+building.getDescriptionTextLength()
