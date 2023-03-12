@@ -18,3 +18,16 @@ function mapArrOfUsers(item: string, index: number): any {
     index++
     console.log ("member" + " " + `${index}` + ':' + ' ' + `${item}`)
 };
+/// Task 3
+const numbersOfTask3Hw8: number [] = [7, -4, 32, -90, 54, 32, -21]
+const newArrNumbersAboveZero  = numbersOfTask3Hw8.filter ((item:number) => {
+    if (item > 0) {
+        return item
+    }
+})
+console.log (newArrNumbersAboveZero)
+//// Task 4
+const sumOfFibonacci = fibonacci.reduce ((sum: number, item: number) => {
+    return sum + item
+}, 0);
+console.log (sumOfFibonacci)
