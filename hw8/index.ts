@@ -41,9 +41,14 @@ return item % 3 === 0 && item % 5 === 0
 }) 
 console.log (isMultiple3And5)
 //// Task 7
-const resultOfTask7: boolean = [2, 8].every((item: number) => {
-
-})
+const thisTaskArray = [2,8,5];
+const resultOfTask7: boolean = thisTaskArray.every((item: number) => {
+    const pow = item **2
+    const sumOfNumb = pow.toString().split('').reduce((list, elem) => {
+        return list + Number(elem);
+    }, 0);
+    return sumOfNumb % 2 ===0;
+});
 console.log (resultOfTask7)
 //// Task 8
 const recipeMap = new Map<string, number>([
