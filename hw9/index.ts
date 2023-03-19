@@ -14,20 +14,18 @@ public getGreeting(): string {
 }
 }
 const animalOne = new Animal("Vasiliy", 3)
-console.log (animalOne)
 console.log (animalOne.getGreeting())
 /// Task 2
 class Pet extends Animal {
-   private readonly address: {city: string, street: string, "house number": number} = 
-   {city: "Mogilev", street: "Leninskaya", "house number": 12};
-   constructor (animalName: string, animalAge: number) {
+   protected readonly address: string;
+   constructor (animalName: string, animalAge: number, petAddress: string) {
     super (animalName, animalAge);
+    this.address = petAddress
    }
 
    public whereLives(): string {
-return `My ${Animal.animalType} lives in ${this.address.city} city, ${this.address.street} street, ${this.address["house number"]}`
+return `My ${Animal.animalType} lives in ${this.address}`
    }
 }
-const petOne = new Pet("Barsik", 6)
-console.log (petOne)
+const petOne = new Pet("Barsik", 6, "Mogilev. Leninskaya street, 12" )
 console.log (petOne.whereLives())
