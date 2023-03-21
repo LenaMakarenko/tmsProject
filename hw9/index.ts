@@ -1,7 +1,7 @@
 /// Task 1
 class Animal {
     public readonly name: string;
-    private age: number;
+    protected age: number;
     static animalType: string = "cat";
 
     constructor(animalName: string, animalAge: number) {
@@ -17,7 +17,7 @@ const animalOne = new Animal("Vasiliy", 3)
 console.log (animalOne.getGreeting())
 /// Task 2
 class Pet extends Animal {
-   protected readonly address: string;
+   private readonly address: string;
    constructor (animalName: string, animalAge: number, petAddress: string) {
     super (animalName, animalAge);
     this.address = petAddress
