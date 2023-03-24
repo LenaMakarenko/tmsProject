@@ -32,10 +32,11 @@ class LuxaryCar extends Car {
     }
 
 }
-const luxaryCar1  = new LuxaryCar ("audi", "cccv", 120, 140000)
+const luxaryCar1  = new LuxaryCar ("Audi", "hgjhg", 120, 140000)
 console.log (luxaryCar1.getMaxSpeedAndCostOfTheCar())
-const sportCar1 = new SportCar ("ford", "kjhg", 1800, 2000000)
+const sportCar1 = new SportCar ("Ford", "kjhg", 260, 2000000)
 console.log (sportCar1.getMaxSpeedAndCostOfTheCar())
 function getCarDesign(this: Car, numberOfDoors: number, steeringWheelSide: string) { 
 return `${this.carName} has ${numberOfDoors} doors and this is ${steeringWheelSide}-hand drive car.`}
-console.log (getCarDesign.call(sportCar1, 3, "left"))
+console.log (getCarDesign.call(sportCar1, 2, "left"))
+console.log (getCarDesign.call(luxaryCar1, 4, "right"))
