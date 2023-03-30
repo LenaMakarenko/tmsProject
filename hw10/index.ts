@@ -40,17 +40,17 @@ type CarType = {
     steeringWheelSide: string
 }
 const firstCar: CarType = {
-    carName: "Skoda",
+    carName: "Skoda Rapid",
     numberOfDoors: 4,
     steeringWheelSide: "right"
 }
 const secondCar: CarType = {
-    carName: "Chevrolet",
+    carName: "Chevrolet g-45",
     numberOfDoors: 3,
     steeringWheelSide: "left"
 }
 function getCarDesign(): string {
-    return `${this.carName} has ${this.numberOfDoors} doors and this is ${this.steeringWheelSide}-hand drive car.`
+    return `This ${this.carName} has ${this.numberOfDoors} doors and this is ${this.steeringWheelSide}-hand drive car.`
 }
 console.log(getCarDesign.call(firstCar))
 console.log(getCarDesign.call(secondCar))
