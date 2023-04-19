@@ -1,2 +1,2 @@
-import { Building } from "./building";
-import { University } from "./university";
+export * from "./building";
+export * from "./university";
