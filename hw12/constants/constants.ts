@@ -9,13 +9,13 @@ const studentSarah: Student = {
     name: "Sarah",
     surname: "Mayer",
     homeTown: "Lisboa",
-    age: 21
+    age: 14
 }
 const studentFrank: Student = {
     name: "Frank",
     surname: "Lampard",
     homeTown: "London",
-    age: 18
+    age: 17
 }
 export {
     studentJohn,

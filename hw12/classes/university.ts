@@ -19,5 +19,3 @@ export class University extends Building {
         else return `The youngest student we have in ${this.name} university is ${minStudentsAge} years old.`
     }
 }
-
-
