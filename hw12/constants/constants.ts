@@ -3,7 +3,7 @@ const studentJohn: Student = {
     name: "John",
     surname: "Brown",
     homeTown: "New Orlean",
-    age: 17
+    age: 14
 }
 const studentSarah: Student = {
     name: "Sarah",
@@ -15,7 +15,7 @@ const studentFrank: Student = {
     name: "Frank",
     surname: "Lampard",
     homeTown: "London",
-    age: 17
+    age: 45
 }
 export {
     studentJohn,

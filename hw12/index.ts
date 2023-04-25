@@ -17,8 +17,8 @@ try {
         studentJohn,
         studentSarah);
     }
-catch (err: any) 
-{ console.log(err.message) }
+catch (Error: any) 
+{ console.log(Error.message) }
     console.log(myUniversity.getStudentsList())
     console.log(myUniversity.getYoungestStudentAge())
 ///myUniversity.studentsAge = myUniversity.studentsAge.filter((item, index) => myUniversity.studentsAge.indexOf(item) === index)

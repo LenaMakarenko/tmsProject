@@ -6,11 +6,11 @@ export function assignStudentToUniversity(
     students.forEach((student) => {
         if (student.age >= 16) {
             university.students.push(student.name + " " + student.surname)
-            if (!university.studentsAge.includes(student.age)) {
-                university.studentsAge.push(student.age)
-            } else {
-                throw new Error(`We believe that ${student.name} ${student.surname} should finish school at first, as he/she is only ${student.age} years old`)
+            if (!university.studentsAge.includes(student.age)) 
+                university.studentsAge.push(student.age)}
+            else {
+                throw new Error(`Error:We believe that ${student.name} ${student.surname} should finish school at first, as he/she is only ${student.age} years old`)
             }
-        }
-    })
-}
+        })
+    }
+
