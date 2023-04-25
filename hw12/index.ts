@@ -11,9 +11,15 @@ const myUniversity = new obj.University("VSMU")
 console.log(myUniversity.getStudentsList())
 console.log(myUniversity.getYoungestStudentAge())
 try {
-    assignStudentToUniversity(myUniversity, studentFrank, studentJohn, studentSarah)
+    assignStudentToUniversity(
+        myUniversity,
+        studentFrank,
+        studentJohn,
+        studentSarah);
+    }
+catch (err: any) 
+{ console.log(err.message) }
     console.log(myUniversity.getStudentsList())
     console.log(myUniversity.getYoungestStudentAge())
-} catch (err: any) { console.log(err.message) }
-myUniversity.studentsAge = myUniversity.studentsAge.filter((item, index) => myUniversity.studentsAge.indexOf(item) === index)
-console.log(myUniversity.studentsAge)
+///myUniversity.studentsAge = myUniversity.studentsAge.filter((item, index) => myUniversity.studentsAge.indexOf(item) === index)
+//console.log(myUniversity.studentsAge)

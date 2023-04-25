@@ -1,8 +1,5 @@
 export class Building {
-    public readonly foundationYear: number;
-    public readonly city: string;
-
-    constructor (foundationYear: number, city: string) {
+    constructor (public foundationYear: number, public readonly city: string) {
     this.foundationYear = foundationYear;
     this.city = city}
 

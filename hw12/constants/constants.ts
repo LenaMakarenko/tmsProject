@@ -9,7 +9,7 @@ const studentSarah: Student = {
     name: "Sarah",
     surname: "Mayer",
     homeTown: "Lisboa",
-    age: 14
+    age: 21
 }
 const studentFrank: Student = {
     name: "Frank",

@@ -1,8 +1,16 @@
 import { University } from "../classes/index"
-import {Student} from "../types/types"
-export function assignStudentToUniversity(university: University, ...students: Student[]) { 
-    const newArr = students.filter(val => val.age < 16)
-    newArr.forEach(result => {console.log (`We believe that ${result.name} ${result.surname} should finish school at first, as he/she is only ${result.age} years old`)})
-    students.forEach((value) => {university.students.push(value.name + " " + value.surname)})
-    students.forEach((value) =>{university.studentsAge.push(value.age)})    
-    }
+import { Student } from "../types/types"
+export function assignStudentToUniversity(
+    university: University,
+    ...students: Student[]) {
+    students.forEach((student) => {
+        if (student.age >= 16) {
+            university.students.push(student.name + " " + student.surname)
+            if (!university.studentsAge.includes(student.age)) {
+                university.studentsAge.push(student.age)
+            } else {
+                throw new Error(`We believe that ${student.name} ${student.surname} should finish school at first, as he/she is only ${student.age} years old`)
+            }
+        }
+    })
+}
