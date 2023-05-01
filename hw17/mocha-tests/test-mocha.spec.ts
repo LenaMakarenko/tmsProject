@@ -44,6 +44,6 @@ describe("Testing the number division method", () => {
         equal(thisCalculator.getDivisionOperation(-24,4), -6, DIVISION_ERROR);
     })
     it ("Should correctly divide negative and positive numbers",() => {
-        expect (thisCalculator.getDivisionOperation(-0,150000000000.23)).to.be.equal(0), ADD_ERROR;
+        expect (thisCalculator.getDivisionOperation(0,-150000000000.23)).to.be.equal(0), ADD_ERROR;
     })
 })

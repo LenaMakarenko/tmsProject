@@ -5,6 +5,3 @@ export class Calculator {
     public getMultiplicationOperation(param1: number, param2: number) { return param1 * param2 }
     public getDivisionOperation(number1: number, number2: number) { if (number2===0)  return "Can't divide by zero!"; return number1 / number2
 }}
-
-const jhg = new Calculator
-jhg.getDivisionOperation(5,0)
