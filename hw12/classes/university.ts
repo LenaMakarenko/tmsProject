@@ -2,9 +2,8 @@ import { Building } from "./building";
 export class University extends Building {
     public students: string[] = [];
     public studentsAge: number[] = [];
-    constructor(public readonly foundationYear: number, public readonly city: string, public readonly name: string) {
-        super(foundationYear, city)
-        this.name = name
+    constructor(public readonly name: string) {
+        super()
     }
     public getStudentsList() {
         if (this.students.length === 0) console.log (`The studying year hasn't begun yet in ${this.name} university.`)
