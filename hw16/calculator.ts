@@ -1,4 +1,6 @@
-export function myCalculator(firstArgument: number, secondArgument: number, operation: '+' | '-' | '*' | '/'): number | string {
+import { Operations } from "./types/types";
+
+export function myCalculator(firstArgument: number, secondArgument: number, operation: Operations ): number | string {
     switch (operation) {
         case '+':
             return firstArgument + secondArgument;

@@ -1,5 +1,6 @@
 import { myCalculator } from "./calculator";
-export function myCalculatorChecker(firstArgument: number, secondArgument: number, operation: '+' | '-' | '*' | '/', resultChecker: number | string) {
+import { Operations } from "./types/types";
+export function myCalculatorChecker(firstArgument: number, secondArgument: number, operation: Operations, resultChecker: number | string) {
     if (myCalculator(firstArgument, secondArgument, operation) === resultChecker) {
         console.log('Test passed!');
     }
