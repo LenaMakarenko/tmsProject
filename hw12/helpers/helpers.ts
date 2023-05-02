@@ -5,7 +5,7 @@ export function assignStudentToUniversity(
     ...students: Student[]) {
     students.forEach((student) => {
         if (student.age >= 16) {
-            university.students.push(student.name + " " + student.surname)
+            university.students.push(student.name + " " + student.surname);
             if (!university.studentsAge.includes(student.age)) 
                 university.studentsAge.push(student.age)}
             else {

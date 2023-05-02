@@ -3,20 +3,20 @@ const studentJohn: Student = {
     name: "John",
     surname: "Brown",
     homeTown: "New Orlean",
-    age: 14
-}
+    age: 20
+};
 const studentSarah: Student = {
     name: "Sarah",
     surname: "Mayer",
     homeTown: "Lisboa",
-    age: 21
-}
+    age: 14
+};
 const studentFrank: Student = {
     name: "Frank",
     surname: "Lampard",
     homeTown: "London",
     age: 45
-}
+};
 export {
     studentJohn,
     studentSarah,

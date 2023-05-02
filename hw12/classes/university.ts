@@ -1,9 +1,9 @@
-const { Building } = require('./building')
+import { Building } from "./building";
 export class University extends Building {
     public students: string[] = [];
     public studentsAge: number[] = [];
-    constructor(public readonly name: string) {
-        super()
+    constructor(public readonly foundationYear: number, public readonly city: string, public readonly name: string) {
+        super(foundationYear, city)
         this.name = name
     }
     public getStudentsList() {
