@@ -7,7 +7,7 @@ import {
 } from "./constants/constants";
 const myBuilding = new Building(1971, "Vitebsk");
 myBuilding.getBuildingInfo();
-const myUniversity = new University(1971, "Vitebsk", "VSMU");
+const myUniversity = new University("VSMU", 1971, "Vitebsk");
 myUniversity.getStudentsList();
 myUniversity.getYoungestStudentAge();
 try {
