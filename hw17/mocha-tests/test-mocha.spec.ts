@@ -37,7 +37,7 @@ describe("Testing the number multiplication method", () => {
 })
 
 describe("Testing the number division method", () => { 
-    it ("Should correctly divide two positive numbers",() => {
+    it ("Should correctly divide positive number and zero",() => {
         equal(thisCalculator.getDivisionResult(256,0), "Can't divide by zero!", DIVISION_ERROR);
     })
     it ("Should correctly divide positive and negatve numbers",() => {

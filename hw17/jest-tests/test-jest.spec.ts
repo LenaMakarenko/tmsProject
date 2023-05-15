@@ -17,7 +17,7 @@ describe("Testing the number addition method", () => {
 })
 
 describe("Testing the number subtraction method", () => { 
-    test ("Should correctly subtract two positive numbers",() => {
+    test ("Should correctly subtract positive number and zero",() => {
         expect(thisCalculator.getSubtractionResult(256,0)).toEqual(256);
     })
 
@@ -45,7 +45,7 @@ describe("Testing the number division method", () => {
         expect(thisCalculator.getDivisionResult(-24,4)).toEqual(-6);
     })
 
-    test ("Should correctly divide negative and positive numbers",() => {
+    test ("Should correctly divide zero and positive numbers",() => {
         expect(thisCalculator.getDivisionResult(0,-150000000000.23)).toEqual(-0)
     })
 })
