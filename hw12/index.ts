@@ -1,5 +1,5 @@
 import { Building, University } from "./classes/index";
-import { assignStudentToUniversity } from "./helpers/helpers";
+import assignStudentToUniversity from "./helpers/helpers";
 import {
     studentJohn,
     studentSarah,

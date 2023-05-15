@@ -1,6 +1,6 @@
 import { University } from "../classes/index"
 import { Student } from "../types/types"
-export function assignStudentToUniversity(
+export default function assignStudentToUniversity(
     university: University,
     ...students: Student[]) {
     students.forEach((student) => {
