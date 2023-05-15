@@ -14,7 +14,8 @@
     "hw9:test": "ts-node hw9/index.ts",
     "hw10:test": "ts-node hw10/index.ts",
     "hw11:test": "ts-node hw11/index.ts",
-    "hw16:test": "ts-node hw16/index.ts"
+    "hw16:test": "ts-node hw16/index.ts",
+    "hw19:test": "ts-node hw19/index.ts"
   },
   "repository": {
     "type": "git",
@@ -32,7 +33,9 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
+    "@types/selenium-webdriver": "^4.1.14",
     "prettier": "^2.8.4",
+    "selenium-webdriver": "^4.9.2",
     "ts-node": "^10.9.1"
   }
 }
