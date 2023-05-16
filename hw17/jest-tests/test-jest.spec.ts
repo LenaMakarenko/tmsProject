@@ -27,7 +27,7 @@ describe("Testing the number subtraction method", () => {
 })
 
 describe("Testing the number multiplication method", () => { 
-    test ("Should correctly multiply two negative numbers",() => {
+    test ("Should correctly multiply positive number and zero",() => {
         expect(thisCalculator.getMultiplicationResult(256,0)).toEqual(0);
     })
 
@@ -37,7 +37,7 @@ describe("Testing the number multiplication method", () => {
 })
 
 describe("Testing the number division method", () => { 
-    test ("Should correctly divide two positive numbers",() => {
+    test ("Should correctly divide positive number and zero",() => {
         expect(thisCalculator.getDivisionResult(256,0)).toEqual("Can't divide by zero!");
     })
 

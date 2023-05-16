@@ -28,7 +28,7 @@ describe("Testing the number subtraction method", () => {
 })
 
 describe("Testing the number multiplication method", () => { 
-    it ("Should correctly multiply two negative numbers",() => {
+    it ("Should correctly multiply positive number and zero",() => {
         equal(thisCalculator.getMultiplicationResult(256,0), 0, MULTIPLICATE_ERROR);
     })
     it ("Should correctly multiply positive and negatve numbers",() => {
@@ -43,7 +43,7 @@ describe("Testing the number division method", () => {
     it ("Should correctly divide positive and negatve numbers",() => {
         equal(thisCalculator.getDivisionResult(-24,4), -6, DIVISION_ERROR);
     })
-    it ("Should correctly divide negative and positive numbers",() => {
+    it ("Should correctly divide negative number and zero",() => {
         expect (thisCalculator.getDivisionResult(0,-150000000000.23)).to.be.equal(0), DIVISION_ERROR;
     })
 })
