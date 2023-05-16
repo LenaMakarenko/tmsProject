@@ -3,30 +3,23 @@ import superagent, { Response } from "superagent"
 
 let response: Response;
 const NUMBER_OF_POSTS = 100;
-const NUMBER_OF_USERS = 10;
-const NUMBER_OF_ALBUMS = 100;
 const BASE_URL = `https://jsonplaceholder.typicode.com`;
 const postNo = Math.floor(Math.random() * NUMBER_OF_POSTS) + 1;
-const userNo = Math.floor(Math.random() * NUMBER_OF_USERS) + 1;
-const albumNo = Math.floor(Math.random() * NUMBER_OF_ALBUMS) + 1;
+const NUMBER_OF_USERS = 10;
 const postCreated = {
     title: 'Marilyn Manson',
     body: 'Sweet dreems are made of this',
     userId: Math.floor(Math.random() * NUMBER_OF_USERS)
 }
-const myAlbum = {
-    userId: Math.floor(Math.random() * NUMBER_OF_ALBUMS),
-    title: 'Per aspera ad astra'
-}
 
-describe(`Testing HTTP methods`, () => {
+describe(`Testing HTTP methods on JSONplaceholder`, () => {
     test(`Should correctly read GET response`, async () => {
         try {
-            response = await superagent.get(`${BASE_URL}/users`);
+            response = await superagent.get(`${BASE_URL}/posts`);
         } catch (err: any) { throw new Error(err.message); }
 
         expect(response.status).toBe(200);
-        expect(response.body.length).toBe(NUMBER_OF_USERS);
+        expect(response.body.length).toBe(NUMBER_OF_POSTS);
     })
 
     test(`Should correctly GET post № ${postNo}`, async () => {
@@ -38,16 +31,16 @@ describe(`Testing HTTP methods`, () => {
         expect(response.body.id).toBe(postNo);
     })
 
-    test(`Should correctly GET posts with definite userId ${userNo}`, async () => {
+    test(`Should correctly GET posts with definite postId ${postNo}`, async () => {
         try {
             response = await superagent
                 .get(`${BASE_URL}/posts`)
-                .query({ userId: userNo })
+                .query({ userId: postNo })
         } catch (err: any) { throw new Error(err.message); }
 
         expect(response.status).toBe(200);
         response.body.forEach((post: any) => {
-            expect(post.userId).toBe(userNo)
+            expect(post.userId).toBe(postNo)
         })
     })
 
@@ -69,4 +62,12 @@ describe(`Testing HTTP methods`, () => {
             expect(response.status).toBe(201)
             expect(response.body).toMatchObject(postCreated)
     })
+
+    test(`Should testing HTTP PATCH method`, async () => {
+        try {
+            response = await superagent
+            .patch(`${BASE_URL}/posts/5`)
+            .set("Content-type", "application/json")
+            .send({ });
+
     })
