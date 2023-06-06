@@ -13,13 +13,13 @@ describe("Testing the number addition method", () => {
     it ("Should correctly add two negative numbers",() => {
         equal(thisCalculator.getAdditionResult(-26,-158), -184, ADD_ERROR);
     })
+
     it ("Should correctly add negative and positive numbers",() => {
-        expect (thisCalculator.getAdditionResult(-26,45)).to.be.equal(19), ADD_ERROR;
+        equal(thisCalculator.getAdditionResult(-26,45),19, ADD_ERROR)
     })
-})
 
 describe("Testing the number subtraction method", () => { 
-    it ("Should correctly subtract two positive numbers",() => {
+    it ("Should correctly subtract positive number and zero",() => {
         equal(thisCalculator.getSubtractionResult(256,0), 256, SUBTRACTION_ERROR);
     })
     it ("Should correctly subtract negative and positive numbers",() => {
@@ -31,7 +31,7 @@ describe("Testing the number multiplication method", () => {
     it ("Should correctly multiply positive number and zero",() => {
         equal(thisCalculator.getMultiplicationResult(256,0), 0, MULTIPLICATE_ERROR);
     })
-    it ("Should correctly multiply positive and negatve numbers",() => {
+    it ("Should correctly multiply negative and positive numbers",() => {
         equal(thisCalculator.getMultiplicationResult(-25,236), -5900, MULTIPLICATE_ERROR);
     })
 })
@@ -44,6 +44,7 @@ describe("Testing the number division method", () => {
         equal(thisCalculator.getDivisionResult(-24,4), -6, DIVISION_ERROR);
     })
     it ("Should correctly divide zero and negative number",() => {
-        expect (thisCalculator.getDivisionResult(0,-150000000000.23)).to.be.equal(0), DIVISION_ERROR;
+        equal(thisCalculator.getDivisionResult(0,-150000000000.23),-0, DIVISION_ERROR);
     })
+})
 })
