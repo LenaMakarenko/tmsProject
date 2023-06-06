@@ -41,7 +41,7 @@ describe("Testing the number division method", () => {
         equal(thisCalculator.getDivisionResult(256,0), "Can't divide by zero!", DIVISION_ERROR);
     })
     it ("Should correctly divide negative and positive numbers",() => {
-        equal(thisCalculator.getDivisionResult(-24,4), -6, DIVISION_ERROR);
+        expect (thisCalculator.getDivisionResult(-24,4)).to.be.equal(-6);
     })
     it ("Should correctly divide zero and negative number",() => {
         equal(thisCalculator.getDivisionResult(0,-150000000000.23),-0, DIVISION_ERROR);
