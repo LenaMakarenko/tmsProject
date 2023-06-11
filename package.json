@@ -15,7 +15,7 @@
     "hw10:test": "ts-node hw10/index.ts",
     "hw11:test": "ts-node hw11/index.ts",
     "hw16:test": "ts-node hw16/index.ts",
-    "hw19:test": "ts-node hw19/index.ts"
+    "hw19:test": "mocha --config='./hw19/.mocharc.json'"
   },
   "repository": {
     "type": "git",
@@ -28,9 +28,11 @@
   },
   "homepage": "https://github.com/LenaMakarenko/tmsProject#readme",
   "devDependencies": {
+    "@types/chai": "^4.3.5",
     "@types/mocha": "^10.0.1",
     "@types/node": "^20.2.5",
     "@types/node-fetch": "^2.6.3",
+    "chai": "^4.3.7",
     "mocha": "^10.2.0",
     "node-fetch": "^2.6.9",
     "typescript": "^4.9.5"
