@@ -1,6 +1,6 @@
 import { By, until, Builder, Capabilities } from "selenium-webdriver";
 import assert from "assert";
-import expect from "chai";
+import {expect} from "chai";
 
 const THIS_BASE_URL = "https://healthplanet.by";
 const driver = new Builder()
@@ -9,32 +9,46 @@ const driver = new Builder()
 
 describe('UI tests on selenium for healthplanet', async () => {
     before (async() => {
-await driver.manage().setTimeouts({implicit: 500000, pageLoad: 300000, script: 1000000
-})
+await driver.manage().setTimeouts({implicit: 500000, pageLoad: 300000, script: 1000000})
 await driver.manage().window().maximize();
-await driver.manage().deleteAllCookies();
 });
+
 it("Should go to 'oplata i dostavka' section in the navigation menu", async () => {
 await driver.get(THIS_BASE_URL);
 await driver.findElement(By.css("a.main-nav__link[href='/oplata-i-dostavka/']")).click();
 await driver.wait(until.urlContains('/oplata-i-dostavka/'));
 }).timeout(100000);
+
 it("Should go to the product cart 'tabeks' from the catalog", async () => {
 await driver.get(THIS_BASE_URL);
-await driver.findElement(By.css(".catalog-menu__toggler > span")).click();
-await driver.findElement(By.xpath("/html/body/header/div[4]/div/div/div[2]/a")).click();
-await driver.findElement(By.css("a.filter__categories-link:nth-child(3)")).click(); 
-await driver.findElement(By.css("div.catalog__cell:nth-child(1) > div:nth-child(1) > a:nth-child(1)")).click();
-await driver.wait(until.titleContains("Табекс таблетки"), 3000);
-}).timeout(100000)
-it("Should check search button ", async () => {
+await driver.findElement(By.css("div.catalog-menu__toggler span")).click();
+await driver.findElement(By.css("a.hover-menu__link[href^='/catalog/lekarstvennye-i-']")).click();
+await driver.findElement(By.css("a.filter__categories-link[href^='/catalog/borba-s-vrednymi']")).click(); 
+await driver.findElement(By.css("a.product-item__link[href^='/p/tabeks']")).click();
+await driver.wait(until.titleContains("Табекс таблетки"), 8000);
+}).timeout(30000)
+
+it("Should check search input field", async () => {
     await driver.get(THIS_BASE_URL);
     await driver.findElement(By.css(".search__row  .search__input")).sendKeys("Ибандронат");
     await driver.findElement(By.css("a.search__btn span.hidden-xs")).click();
-    await driver.wait(until.urlContains('/search/?q=ибандронат'));
-    await driver.quit()
-    }).timeout(1000000);
+    const text = await driver.findElement(By.xpath("//h1[@class='page-title h2']")).getText();
+    expect(text).to.equal('Результаты по запросу «Ибандронат»');
+    }).timeout(50000);
 
+it("Should check 'nashi apteki' button", async () => {
+    await driver.get(THIS_BASE_URL);
+    await driver.findElement(By.css("a.main-nav__link[href='/map/']")).click();
+    const title = await driver.getTitle();
+    expect(title).to.equal('География сети аптек "Планета Здоровья"')
+}).timeout(100000);
+
+it("Should check if the 'voyti'button is active", async () => {
+    await driver.get(THIS_BASE_URL);
+    const checker = await driver.findElement(By.css("svg.symbol.symbol-tool-user")).isEnabled();
+    expect(checker).to.equal(true)
+    await driver.quit()
+            }).timeout(100000);
 })
 
 
