@@ -1,5 +1,4 @@
 import { By, until, Builder, Capabilities } from "selenium-webdriver";
-import assert from "assert";
 import {expect} from "chai";
 
 const THIS_BASE_URL = "https://healthplanet.by";
@@ -12,6 +11,9 @@ describe('UI tests on selenium for healthplanet', async () => {
 await driver.manage().setTimeouts({implicit: 500000, pageLoad: 300000, script: 1000000})
 await driver.manage().window().maximize();
 });
+    after (async() => {
+await driver.quit()
+    });
 
 it("Should go to 'oplata i dostavka' section in the navigation menu", async () => {
 await driver.get(THIS_BASE_URL);
@@ -47,22 +49,5 @@ it("Should check if the 'voyti'button is active", async () => {
     await driver.get(THIS_BASE_URL);
     const checker = await driver.findElement(By.css("svg.symbol.symbol-tool-user")).isEnabled();
     expect(checker).to.equal(true)
-    await driver.quit()
             }).timeout(100000);
 })
-
-
-
-
-
-
-//(async function testQuokkajsSite() {
- //   try {
-      //  await driver.manage().window().maximize;
-     //   await driver.get(THIS_BASE_URL);
-     //   await driver.findElement(By.css("nav a[href='/docs/#getting-started']")).click();
-     //   await driver.wait(until.titleContains("Quokka.js: Introduction"), 2000)
-       
-  //  } catch (err: any) { console.log(err.message) }
- //   finally { await driver.quit();}
-//})();
