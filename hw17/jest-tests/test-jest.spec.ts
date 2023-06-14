@@ -1,5 +1,6 @@
 import { Calculator } from "../src/classes";
 import {expect} from "@jest/globals";
+import { DIVISION_WARNING } from "../src/constants";
 const thisCalculator = new Calculator();
 
 describe("Testing the number addition method", () => {
@@ -38,7 +39,7 @@ describe("Testing the number multiplication method", () => {
 
 describe("Testing the number division method", () => { 
     test ("Should correctly divide positive number and zero",() => {
-        expect(thisCalculator.getDivisionResult(256,0)).toEqual("Can't divide by zero!");
+        expect(thisCalculator.getDivisionResult(256,0)).toEqual(DIVISION_WARNING);
     })
 
     test ("Should correctly divide negative and positive numbers",() => {
