@@ -1,17 +1,30 @@
 import { By, until, Builder, Capabilities } from "selenium-webdriver";
 import {expect} from "chai";
+import {rmSync, mkdirSync, writeFileSync} from 'fs'
 
 const THIS_BASE_URL = "https://healthplanet.by";
 const URL_FOR_FIRST_TEST = '/oplata-i-dostavka/';
+const screenshotsDir = 'hw19/screenshots/';
 const driver = new Builder()
     .withCapabilities(Capabilities.chrome())
     .build();
 
 describe('UI tests on selenium for healthplanet', async () => {
     before (async() => {
+rmSync(screenshotsDir, {recursive:true, force:true});
+mkdirSync(screenshotsDir, {recursive:true});
 await driver.manage().setTimeouts({implicit: 500000, pageLoad: 300000, script: 1000000})
 await driver.manage().window().maximize();
 });
+    afterEach(async () => {
+        const date = new Date();
+        const screen = await driver.takeScreenshot();
+        writeFileSync(
+        screenshotsDir + `screenshot_${date.getHours()}_${date.getMinutes()}_${date.getSeconds()}.png}`,
+        screen,
+        'base64'
+        );
+    })
     after (async() => {
 await driver.quit()
     });
