@@ -20,7 +20,7 @@ await driver.manage().window().maximize();
         const date = new Date();
         const screen = await driver.takeScreenshot();
         writeFileSync(
-        screenshotsDir + `screenshot_${date.getHours()}_${date.getMinutes()}_${date.getSeconds()}.png}`,
+        screenshotsDir + `screenshot_${date.getHours()}_${date.getMinutes()}_${date.getSeconds()}.png`,
         screen,
         'base64'
         );
