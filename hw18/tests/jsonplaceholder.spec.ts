@@ -1,7 +1,7 @@
 import {expect}  from "@jest/globals";
 import superagent, { Response } from "superagent";
-import * as getPostComments from "./hw18/schema/get-post-comments.schema.json";
-import {validateSchema} from "./helpers";
+import * as getPostComments from "D:/Project/tmsProject/hw18/schema/get-post-comments.schema.json";
+import {validateSchema} from "D:/Project/tmsProject/hw18/helpers";
 
 let response: Response;
 const BASE_URL = `https://jsonplaceholder.typicode.com`;
@@ -26,7 +26,7 @@ describe(`Testing HTTP methods on JSONplaceholder`, () => {
         expect(response.body.length).toBe(5);
     })
 
-    test(`Should correctly check GET response body (contains string)`, async () => {
+    test(`Should correctly check GET response body`, async () => {
         try {
             response = await superagent.get(`${BASE_URL}/posts/${postNo}/comments`)
         } catch (err: any) { throw new Error(err.message) }

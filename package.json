@@ -16,7 +16,7 @@
     "hw11:test": "ts-node hw11/index.ts",
     "hw12:test": "ts-node hw12/index.ts",
     "hw16:test": "ts-node hw16/index.ts",
-    "hw18:test": ""
+    "hw18:test": "jest --config='./hw18/jest.config.js'"
   },
   "repository": {
     "type": "git",
