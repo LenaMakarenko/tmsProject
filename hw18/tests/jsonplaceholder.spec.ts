@@ -1,9 +1,11 @@
 import {expect}  from "@jest/globals";
-import superagent, { Response } from "superagent"
+import superagent, { Response } from "superagent";
+import * as getPostComments from "./hw18/schema/get-post-comments.schema.json";
+import {validateSchema} from "./helpers";
+
 let response: Response;
 const BASE_URL = `https://jsonplaceholder.typicode.com`;
 const NUMBER_OF_POSTS = 100;
-const EXAMPLE_OF_VALID_EMAIL = 'Eliseo@gardner.biz';
 const postNo = Math.floor(Math.random() * NUMBER_OF_POSTS) + 1;
 const myPost: { name: string, age: number } = {
     "name": "Lena",
@@ -26,9 +28,9 @@ describe(`Testing HTTP methods on JSONplaceholder`, () => {
 
     test(`Should correctly check GET response body (contains string)`, async () => {
         try {
-            response = await superagent.get(`${BASE_URL}/posts/1/comments`)
+            response = await superagent.get(`${BASE_URL}/posts/${postNo}/comments`)
         } catch (err: any) { throw new Error(err.message) }
-        expect(response.text).toContain(EXAMPLE_OF_VALID_EMAIL)
+        validateSchema(getPostComments, response.body);
     })
 
     test(`Should correctly process non-existing post`, async () => {
