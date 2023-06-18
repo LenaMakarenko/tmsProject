@@ -1,4 +1,4 @@
-import { expect } from "@jest/globals";
+import {expect}  from "@jest/globals";
 import superagent, { Response } from "superagent"
 let response: Response;
 const BASE_URL = `https://jsonplaceholder.typicode.com`;
