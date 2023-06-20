@@ -61,7 +61,7 @@ describe('UI tests on selenium for healthplanet', async () => {
         await driver.get(THIS_BASE_URL);
         await driver.findElement(By.css("a.main-nav__link[href='/map/']")).click();
         const title = await driver.getTitle();
-        expect(title).to.equal('География сети аптек "Планета Здоровья"')
+        expect(title).to.equal('Главная - Планета Здоровья - аптечная сеть')
     }).timeout(100000);
 
     it("5 Should check if the 'voyti'button is active", async () => {
