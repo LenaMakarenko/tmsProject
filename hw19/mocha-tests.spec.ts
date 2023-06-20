@@ -5,6 +5,7 @@ import { rmSync, mkdirSync, writeFileSync } from 'fs'
 const THIS_BASE_URL = "https://healthplanet.by";
 const URL_FOR_FIRST_TEST = '/oplata-i-dostavka/';
 const textToInput = "Ибандронат";
+const titleTextForFourthTest = 'Главная - Планета Здоровья - аптечная сеть: инструкция по применению, цена, аналоги, состав, показания';
 const headerText = 'Результаты по запросу «Ибандронат»';
 const screenshotsDir = 'hw19/screenshots/';
 const driver = new Builder()
@@ -61,7 +62,7 @@ describe('UI tests on selenium for healthplanet', async () => {
         await driver.get(THIS_BASE_URL);
         await driver.findElement(By.css("a.main-nav__link[href='/map/']")).click();
         const title = await driver.getTitle();
-        expect(title).to.equal('Главная - Планета Здоровья - аптечная сеть')
+        expect(title).to.equal(titleTextForFourthTest)
     }).timeout(100000);
 
     it("5 Should check if the 'voyti'button is active", async () => {
