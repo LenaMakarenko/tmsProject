@@ -16,9 +16,9 @@
     "hw11:test": "ts-node hw11/index.ts",
     "hw12:test": "ts-node hw12/index.ts",
     "hw16:test": "ts-node hw16/index.ts",
-    "hw19:test": "mocha --config='hw19/mocharc.json'",
     "hw17-test-mocha": "mocha --config='./hw17/.mocharc.json'",
-    "hw17-test-jest": "jest --config='./hw17/jest.config.js'"
+    "hw17-test-jest": "jest --config='./hw17/jest.config.js'",
+    "hw19:test": "mocha --config='hw19/mocharc.json'"
   },
   "repository": {
     "type": "git",
