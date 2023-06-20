@@ -13,9 +13,9 @@ const myPost: { name: string, age: number } = {
     "age": 27
 };
 const updatePost: { id: number, title: string, body: string } = {
-    "id": 15354,
-    "title": "hello, world!",
-    "body": "dure lex sed lex "
+    id: 15354,
+    title: "hello, world!",
+    body: "dure lex sed lex "
 };
 
 describe(`Testing HTTP methods on JSONplaceholder`, () => {
@@ -104,8 +104,7 @@ describe(`Testing HTTP methods on JSONplaceholder`, () => {
                 .send(updatePost)
         } catch (err: any) { throw new Error(err.message) };
         expect(response.status).toBe(200);
-        expect(response.body.title).toEqual(updatePost.title);
-        expect(response.body.id).toEqual(updatePost.id);
-        expect(response.body.body).toEqual(updatePost.body);
+        expect(response.body).toMatchObject(updatePost);
+       
     })
 })
