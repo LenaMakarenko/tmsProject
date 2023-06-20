@@ -19,18 +19,20 @@ const updatePost: { id: number, title: string, body: string } = {
 };
 
 describe(`Testing HTTP methods on JSONplaceholder`, () => {
-    test(`Should correctly read comments to posts`, async () => {
+    test(`Should correctly read one post`, async () => {
         try {
-            response = await superagent.get(`${BASE_URL}/posts/${postNo}/comments`)
+            response = await superagent.get(`${BASE_URL}/posts/${postNo}`)
         } catch (err: any) { throw new Error(err.message) }
         expect(response.status).toBe(200);
-        expect(response.body.length).toBe(NUMBER_OF_COMMENTS_TO_ONE_POST);
+        expect(response.body.id).toEqual(postNo);
     })
 
     test(`Should correctly check GET response body`, async () => {
         try {
             response = await superagent.get(`${BASE_URL}/posts/${postNo}/comments`)
         } catch (err: any) { throw new Error(err.message) }
+        expect(response.status).toBe(200);
+        expect(response.body.length).toBe(NUMBER_OF_COMMENTS_TO_ONE_POST);
         validateSchema(getPostComments, response.body);
     })
 
