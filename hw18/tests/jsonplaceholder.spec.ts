@@ -7,15 +7,16 @@ let response: Response;
 const BASE_URL = `https://jsonplaceholder.typicode.com`;
 const NUMBER_OF_POSTS = 100;
 const NUMBER_OF_COMMENTS_TO_ONE_POST = 5;
+const ERROR_MESSAGE = "Not Found";
 const postNo = Math.floor(Math.random() * NUMBER_OF_POSTS) + 1;
 const myPost: { name: string, age: number } = {
-    "name": "Lena",
-    "age": 27
+    name: "Lena",
+    age: 27
 };
 const updatePost: { id: number, title: string, body: string } = {
     id: 15354,
     title: "hello, world!",
-    body: "dure lex sed lex "
+    body: "dure lex sed lex"
 };
 
 describe(`Testing HTTP methods on JSONplaceholder`, () => {
@@ -56,7 +57,7 @@ describe(`Testing HTTP methods on JSONplaceholder`, () => {
             response = await superagent.delete(`${BASE_URL}/poss`);
         } catch (err: any) {
             expect(err.status).toBe(404)
-            expect(err.message).toBe("Not Found") }
+            expect(err.message).toBe(ERROR_MESSAGE) }
     })
 
     test(`Should correctly do PUT method`, async () => {
@@ -75,7 +76,7 @@ describe(`Testing HTTP methods on JSONplaceholder`, () => {
             response = await superagent.put (`${BASE_URL}/poss/${postNo} + 1`)
                 .set("Content-type", "application/json")
                 .send(myPost)
-        } catch (err: any) { expect(err.message).toBe("Not Found")};
+        } catch (err: any) { expect(err.message).toBe(ERROR_MESSAGE)};
     })
 
     test(`Should correctly do POST method`, async () => {
