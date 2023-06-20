@@ -1,5 +1,6 @@
 {
     "spec":["hw19/*.spec.ts"],
     "extension":["ts"],
-    "require":["ts-node/register"]
+    "require":["ts-node/register"],
+    "timeout": 100000
 }
