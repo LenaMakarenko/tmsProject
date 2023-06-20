@@ -1,7 +1,7 @@
 import {expect}  from "@jest/globals";
 import superagent, { Response } from "superagent";
-import * as getPostComments from "D:/Project/tmsProject/hw18/schema/get-post-comments.schema.json";
-import {validateSchema} from "D:/Project/tmsProject/hw18/helpers";
+import * as getPostComments from "../../hw18/schema/get-post-comments.schema.json";
+import { validateSchema } from "../../hw18/helpers";
 
 let response: Response;
 const BASE_URL = `https://jsonplaceholder.typicode.com`;
@@ -105,6 +105,5 @@ describe(`Testing HTTP methods on JSONplaceholder`, () => {
         } catch (err: any) { throw new Error(err.message) };
         expect(response.status).toBe(200);
         expect(response.body).toMatchObject(updatePost);
-       
     })
 })
