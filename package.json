@@ -18,8 +18,8 @@
     "hw16:test": "ts-node hw16/index.ts",
     "hw17-test-mocha": "mocha --config='./hw17/.mocharc.json'",
     "hw17-test-jest": "jest --config='./hw17/jest.config.js'",
+    "hw18:test": "jest --config='./hw18/jest.config.js'",
     "hw19:test": "mocha --config='hw19/mocharc.json'"
-    "hw18:test": "jest --config='./hw18/jest.config.js'"
   },
   "repository": {
     "type": "git",
