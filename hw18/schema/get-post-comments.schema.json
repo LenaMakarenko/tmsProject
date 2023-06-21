@@ -1,0 +1,15 @@
+{
+    "$id": "comments.schema",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "postId": {"type": "number", "maximum": 100},
+            "id": {"type": "number", "maximum": 500},
+            "name": {"type": "string"},
+            "email": {"type": "string"},
+            "body": {"type": "string"}
+        },
+        "required": ["postId", "id", "name", "email", "body"]
+    }
+}
