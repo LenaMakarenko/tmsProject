@@ -1,7 +1,7 @@
 import { ThenableWebDriver } from "selenium-webdriver";
 
 export class BasePage {
-    protected const url!:string;
+    protected url!:string;
 
     constructor (private driver: ThenableWebDriver) {}
 
