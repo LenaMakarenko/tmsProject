@@ -70,7 +70,7 @@ describe('UI tests on selenium for healthplanet', async () => {
         await driver.findElement(By.css("a.search__btn span.hidden-xs")).click();
         await driver.findElement(By.css("div.product-item a[href^='/p/nimesil-gran-d-']")).click();
         await driver.findElement(By.css("a.buy-panel__buy")).click();
-        const a = await driver.findElement(By.css("a.buy-panel__buy.btn--success"));
-        expect(a.getCssValue("background-color")).to.equal(backgroundColor)
+        const pressedButton = await driver.findElement(By.css("a.buy-panel__buy.btn--success")).getCssValue("background-color");
+        expect(pressedButton).to.equal(backgroundColor)
     })
 })
