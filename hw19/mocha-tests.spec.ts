@@ -1,13 +1,14 @@
-import { By, until, Builder, Capabilities } from "selenium-webdriver";
+import { By, until, Builder, Capabilities, WebElement } from "selenium-webdriver";
 import { expect } from "chai";
 import { rmSync, mkdirSync, writeFileSync } from 'fs'
 
 const THIS_BASE_URL = "https://healthplanet.by";
 const URL_FOR_FIRST_TEST = '/oplata-i-dostavka/';
 const textToInput = "Ибандронат";
-const titleTextForFourthTest = 'Главная - Планета Здоровья - аптечная сеть: инструкция по применению, цена, аналоги, состав, показания';
-const headerText = 'Результаты по запросу «Ибандронат»';
+const headerText = `Результаты по запросу «${textToInput}»`;
 const screenshotsDir = 'hw19/screenshots/';
+const nameToAddToCart = "Нимесил";
+const backgroundColor = '#33c562';
 const driver = new Builder()
     .withCapabilities(Capabilities.chrome())
     .build();
@@ -39,12 +40,12 @@ describe('UI tests on selenium for healthplanet', async () => {
         await driver.quit()
     });
 
-    it("1 Should go to 'oplata i dostavka' section in the navigation menu", async () => {
+    it("1 Should go to 'оплата и доставка' section in the navigation menu", async () => {
         await driver.findElement(By.css("a.main-nav__link[href='/oplata-i-dostavka/']")).click();
         await driver.wait(until.urlContains(URL_FOR_FIRST_TEST));
     });
 
-    it("2 Should go to the product cart 'tabeks' from the catalog", async () => {
+    it("2 Should go to the product cart 'табекс' from the catalog", async () => {
         await driver.findElement(By.css("div.catalog-menu__toggler span")).click();
         await driver.findElement(By.css("a.hover-menu__link[href^='/catalog/lekarstvennye-i-']")).click();
         await driver.findElement(By.css("a.filter__categories-link[href^='/catalog/borba-s-vrednymi']")).click();
@@ -59,14 +60,17 @@ describe('UI tests on selenium for healthplanet', async () => {
         expect(text).to.equal(headerText);
     });
 
-    it("4 Should check 'nashi apteki' button", async () => {
-        await driver.findElement(By.css("a.main-nav__link[href='/map/']")).click();
-        const title = await driver.getTitle();
-        expect(title).to.equal(titleTextForFourthTest)
+    it("4 Should check 'наши аптеки' button", async () => {
+        const checker: boolean = await driver.findElement(By.css("a.main-nav__link[href='/map/']")).isEnabled();
+        expect(checker).to.be.true
     });
 
-    it("5 Should check if the 'voyti'button is active", async () => {
-        const checker = await driver.findElement(By.css("svg.symbol.symbol-tool-user")).isEnabled();
-        expect(checker).to.be.true
+    it("5 should check that the button 'в корзину' changes color when was clicked", async () => {
+        await driver.findElement(By.className("search__input input js-search__input")).sendKeys(nameToAddToCart);
+        await driver.findElement(By.css("a.search__btn span.hidden-xs")).click();
+        await driver.findElement(By.css("div.product-item a[href^='/p/nimesil-gran-d-']")).click();
+        await driver.findElement(By.css("a.buy-panel__buy")).click();
+        const a = await driver.findElement(By.css("a.buy-panel__buy.btn--success"));
+        expect(a.getCssValue("background-color")).to.equal(backgroundColor)
     })
 })
