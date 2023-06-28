@@ -1,10 +1,11 @@
-import { ThenableWebDriver, WebElement } from "selenium-webdriver";
+import { WebDriver } from "selenium-webdriver";
 import { BasePage } from "./basePage";
 import { BASE_URL } from "../utils/constants";
 import { By, until, Builder, Capabilities } from "selenium-webdriver";
+import { driver } from "../config/driver";
 
 export class HomePage extends BasePage {
-    constructor (driver: ThenableWebDriver) {
+    constructor (driver: WebDriver) {
 super (driver);
 this.url = BASE_URL;
     }
@@ -29,3 +30,5 @@ public async clickToTheSearchButton(): Promise <void> {
     await (await this.driver.findElement(By.css("a.search__btn span.hidden-xs"))).click();
 }
 }
+
+export const homePage = new HomePage(driver);

@@ -1,9 +1,12 @@
-import { ThenableWebDriver } from "selenium-webdriver";
+import { WebDriver } from "selenium-webdriver";
+import { NavigationBar, navigationBar } from "./sections/navigationBar";
 
 export class BasePage {
     protected url!:string;
 
-    constructor (protected driver: ThenableWebDriver) {}
+    public navigationBar: NavigationBar = navigationBar;
+
+    constructor (protected driver: WebDriver) {}
 
     public async visitPage () {
         await this.driver.get(this.url);
@@ -11,5 +14,9 @@ export class BasePage {
 
     public async getPageTitle() {
         return await this.driver.getTitle();
+    }
+
+    public async maximizeWindow() {
+        await this.driver.manage().window().maximize();
     }
 }
