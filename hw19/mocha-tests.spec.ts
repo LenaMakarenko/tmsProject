@@ -1,6 +1,7 @@
 import { By, until, Builder, Capabilities, WebElement } from "selenium-webdriver";
 import { expect } from "chai";
 import { rmSync, mkdirSync, writeFileSync } from 'fs'
+import { rgbaToHex } from "./helpers";
 
 const THIS_BASE_URL = "https://healthplanet.by";
 const URL_FOR_FIRST_TEST = '/oplata-i-dostavka/';
@@ -66,11 +67,32 @@ describe('UI tests on selenium for healthplanet', async () => {
     });
 
     it("5 should check that the button 'в корзину' changes color when was clicked", async () => {
-        await driver.findElement(By.className("search__input input js-search__input")).sendKeys(nameToAddToCart);
-        await driver.findElement(By.css("a.search__btn span.hidden-xs")).click();
-        await driver.findElement(By.css("div.product-item a[href^='/p/nimesil-gran-d-']")).click();
-        await driver.findElement(By.css("a.buy-panel__buy")).click();
-        const pressedButton = await driver.findElement(By.css("a.buy-panel__buy.btn--success")).getCssValue("background-color");
-        expect(pressedButton).to.equal(backgroundColor)
+        await driver
+            .findElement(By.className('search__input input js-search__input'))
+            .sendKeys(nameToAddToCart)
+        await driver.findElement(By.css('a.search__btn span.hidden-xs')).click()
+        await driver
+            .findElement(
+                By.css("div.product-item a[href^='/p/nimesil-gran-d-']")
+            )
+            .click()
+        await driver.findElement(By.css('a.buy-panel__buy')).click()
+
+        await driver.wait(async () => {
+            const cssValue = await driver
+                .findElement(By.css('a.buy-panel__buy.btn--success'))
+                .getCssValue('background-color')
+
+            const regExp = /\(([^)]+)\)/
+            const rgbaValues = (regExp.exec(cssValue) as RegExpExecArray)[1]
+                .split(', ')
+                .map(Number)
+
+            const hexValue = rgbaToHex(
+                ...(rgbaValues as [number, number, number, number])
+            )
+
+            return hexValue === backgroundColor
+        }, 10000)
     })
 })
