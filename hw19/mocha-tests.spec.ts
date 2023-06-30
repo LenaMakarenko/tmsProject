@@ -1,4 +1,4 @@
-import { By, until, Builder, Capabilities, WebElement } from "selenium-webdriver";
+import { By, until, Builder, Capabilities } from "selenium-webdriver";
 import { expect } from "chai";
 import { rmSync, mkdirSync, writeFileSync } from 'fs'
 import { rgbaToHex } from "./helpers";
@@ -10,12 +10,13 @@ const headerText = `Результаты по запросу «${textToInput}»`
 const screenshotsDir = 'hw19/screenshots/';
 const nameToAddToCart = "Нимесил";
 const backgroundColor = '#33c562';
+const urlItemToAddToCart = 'https://healthplanet.by/p/bad-swiss-energy-neyrofors-forte-kapsuly-30/';
 const driver = new Builder()
     .withCapabilities(Capabilities.chrome())
     .build();
 
 describe('UI tests on selenium for healthplanet', async () => {
-    
+
     before(async () => {
         rmSync(screenshotsDir, { recursive: true, force: true });
         mkdirSync(screenshotsDir, { recursive: true });
@@ -26,7 +27,7 @@ describe('UI tests on selenium for healthplanet', async () => {
     beforeEach(async () => {
         await driver.get(THIS_BASE_URL);
     })
-    
+
     afterEach(async () => {
         const date = new Date();
         const screen = await driver.takeScreenshot();
@@ -46,7 +47,7 @@ describe('UI tests on selenium for healthplanet', async () => {
         await driver.wait(until.urlContains(URL_FOR_FIRST_TEST));
     });
 
-    it("2 Should go to the product cart 'табекс' from the catalog", async () => {
+    it("2 Should go to the item 'табекс' from the catalog", async () => {
         await driver.findElement(By.css("div.catalog-menu__toggler span")).click();
         await driver.findElement(By.css("a.hover-menu__link[href^='/catalog/lekarstvennye-i-']")).click();
         await driver.findElement(By.css("a.filter__categories-link[href^='/catalog/borba-s-vrednymi']")).click();
@@ -61,12 +62,20 @@ describe('UI tests on selenium for healthplanet', async () => {
         expect(text).to.equal(headerText);
     });
 
-    it("4 Should check 'наши аптеки' button", async () => {
-        const checker: boolean = await driver.findElement(By.css("a.main-nav__link[href='/map/']")).isEnabled();
-        expect(checker).to.be.true
+    it("4 Should check empty cart and add item to cart", async () => {
+        await driver.findElement(By.css("svg.symbol.symbol-tool-basket")).click();
+        const emptyCart = await driver.findElement(By.css('h1.basket-page__title')).getText();
+        expect(emptyCart).to.contain('нет товаров');
+        await driver.navigate().back();
+        await driver.navigate().to(urlItemToAddToCart);
+        await driver.findElement(By.css("a.buy-panel__buy.product-item__buy")).click();
+        await driver.actions().pause(3000).perform();
+        await driver.findElement(By.css("svg.symbol.symbol-tool-basket")).click();
+        const cartContain = await driver.findElement(By.css("div.basket-page__header")).getText();
+        expect(cartContain).to.contain('В корзине 1 товар');
     });
 
-    it("5 should check that the button 'в корзину' changes color when was clicked", async () => {
+    it("5 Should check that the button 'в корзину' changes color when was clicked", async () => {
         await driver
             .findElement(By.className('search__input input js-search__input'))
             .sendKeys(nameToAddToCart)
