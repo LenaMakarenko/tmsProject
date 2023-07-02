@@ -10,7 +10,9 @@ const headerText = `Результаты по запросу «${textToInput}»`
 const screenshotsDir = 'hw19/screenshots/';
 const nameToAddToCart = "Нимесил";
 const backgroundColor = '#33c562';
-const urlItemToAddToCart = 'https://healthplanet.by/p/bad-swiss-energy-neyrofors-forte-kapsuly-30/';
+const basketLokatorOnMainPage: string = 'svg.symbol.symbol-tool-basket';
+const urlItemToAddToCart = `${THIS_BASE_URL}/p/bad-swiss-energy-neyrofors-forte-kapsuly-30/`;
+
 const driver = new Builder()
     .withCapabilities(Capabilities.chrome())
     .build();
@@ -62,17 +64,15 @@ describe('UI tests on selenium for healthplanet', async () => {
         expect(text).to.equal(headerText);
     });
 
-    it("4 Should check empty cart and add item to cart", async () => {
-        await driver.findElement(By.css("svg.symbol.symbol-tool-basket")).click();
+    it("4 Should check the icon change 0 to 1 when adding product to empty basket", async () => {
+        await driver.findElement(By.css(basketLokatorOnMainPage)).click();
         const emptyCart = await driver.findElement(By.css('h1.basket-page__title')).getText();
         expect(emptyCart).to.contain('нет товаров');
         await driver.navigate().back();
         await driver.navigate().to(urlItemToAddToCart);
         await driver.findElement(By.css("a.buy-panel__buy.product-item__buy")).click();
-        await driver.actions().pause(3000).perform();
-        await driver.findElement(By.css("svg.symbol.symbol-tool-basket")).click();
-        const cartContain = await driver.findElement(By.css("div.basket-page__header")).getText();
-        expect(cartContain).to.contain('В корзине 1 товар');
+        await driver.wait(until.elementTextContains(driver.findElement(By.xpath('//span[@class="header-tool__count js-basket-count"]')), '1'));
+        await driver.findElement(By.css(basketLokatorOnMainPage)).click();
     });
 
     it("5 Should check that the button 'в корзину' changes color when was clicked", async () => {
