@@ -7,6 +7,7 @@ const THIS_BASE_URL = "https://healthplanet.by";
 const URL_FOR_FIRST_TEST = '/oplata-i-dostavka/';
 const textToInput = "Ибандронат";
 const headerText = `Результаты по запросу «${textToInput}»`;
+const numberOfItemsInBasket = 1;
 const screenshotsDir = 'hw19/screenshots/';
 const nameToAddToCart = "Нимесил";
 const backgroundColor = '#33c562';
@@ -64,17 +65,17 @@ describe('UI tests on selenium for healthplanet', async () => {
         expect(text).to.equal(headerText);
     });
 
-    it("4 Should check the icon change 0 to 1 when adding product to empty basket", async () => {
+    it(`4 Should check the icon change 0 to ${numberOfItemsInBasket} when adding product to empty basket`, async () => {
         await driver.findElement(By.css(basketLokatorOnMainPage)).click();
         const emptyCart = await driver.findElement(By.css('h1.basket-page__title')).getText();
         expect(emptyCart).to.contain('нет товаров');
         await driver.navigate().back();
         await driver.navigate().to(urlItemToAddToCart);
         await driver.findElement(By.css("a.buy-panel__buy.product-item__buy")).click();
-        await driver.wait(until.elementTextContains(driver.findElement(By.xpath('//span[@class="header-tool__count js-basket-count"]')), '1'));
+        await driver.wait(until.elementTextContains(driver.findElement(By.xpath('//span[@class="header-tool__count js-basket-count"]')), `${numberOfItemsInBasket}`));
         await driver.findElement(By.css(basketLokatorOnMainPage)).click();
         const cartContain = await driver.findElement(By.css("div.basket-page__header")).getText();
-        expect(cartContain).to.contain("В корзине 1 товар");
+        expect(cartContain).to.contain(`В корзине ${numberOfItemsInBasket} товар`);
     });
 
     it("5 Should check that the button 'в корзину' changes color when was clicked", async () => {
