@@ -73,6 +73,8 @@ describe('UI tests on selenium for healthplanet', async () => {
         await driver.findElement(By.css("a.buy-panel__buy.product-item__buy")).click();
         await driver.wait(until.elementTextContains(driver.findElement(By.xpath('//span[@class="header-tool__count js-basket-count"]')), '1'));
         await driver.findElement(By.css(basketLokatorOnMainPage)).click();
+        const cartContain = await driver.findElement(By.css("div.basket-page__header")).getText();
+        expect(cartContain).to.contain("В корзине 1 товар");
     });
 
     it("5 Should check that the button 'в корзину' changes color when was clicked", async () => {
