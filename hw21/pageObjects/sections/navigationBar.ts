@@ -1,4 +1,4 @@
-import { By, Key, ThenableWebDriver, WebDriver, WebElement } from "selenium-webdriver";
+import { By, WebDriver, WebElement } from "selenium-webdriver";
 import { driver } from "../../config/driver";
 
 export class NavigationBar {
@@ -9,7 +9,7 @@ export class NavigationBar {
   }
 
   public async getTheCatalogButton(): Promise <WebElement> {
-    return this.driver.findElement(By.css("div.catalog-menu__toggler span"));
+    return this.driver.findElement(By.css("div.catalog-menu.js-class"));
 }
 
   public async getSectionInCatalogByInnerText(sometext: string): Promise <WebElement> {
@@ -22,11 +22,19 @@ public async getNavigationButtonByInnerText(text:string): Promise<WebElement> {
 
 public async getNavigationButtonOfCatalogByInnerText(text:string): Promise<WebElement> {
     return await this.driver.findElement(By.xpath(`//a[@class='main-nav__link '][@title="${text}"]`))
+}
 
+public async getSearchField(): Promise <WebElement> {
+    return this.driver.findElement(By.css(".search__row  .search__input"));
+}
+
+public async getFindButton(): Promise <WebElement> {
+  return this.driver.findElement(By.css("a.search__btn span.hidden-xs"));
+}
   //public async searchFor(text:string): Promise<void> {
    // await this.driver.actions()
 //(By.xpath(`//div/a[@class='hover-menu__link'][(text()=${sometext})]`));
  // }
   }
-}
+//}
 export const navigationBar = new NavigationBar(driver);

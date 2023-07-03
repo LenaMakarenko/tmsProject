@@ -8,7 +8,7 @@ export class CatalogPage extends BasePage {
     constructor (driver: WebDriver) {
 super (driver);
 
-this.url = BASE_URL + "catalog/lekarstvennye-i-profilakticheskie-sredstva/";
+this.url = `${BASE_URL}catalog/lekarstvennye-i-profilakticheskie-sredstva/`;
     }
 
 public async getSectionWithinByInnerText(sectionText:string): Promise <WebElement> {

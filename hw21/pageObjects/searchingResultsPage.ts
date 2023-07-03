@@ -1,15 +1,18 @@
-import { ThenableWebDriver, WebElement } from "selenium-webdriver";
+import { WebDriver, WebElement } from "selenium-webdriver";
 import { BasePage } from "./basePage";
 import { BASE_URL } from "../utils/constants";
 import { By, until, Builder, Capabilities } from "selenium-webdriver";
+import { driver } from "../config/driver";
 
-export class HomePage extends BasePage {
-    constructor (driver: ThenableWebDriver) {
+export class SearchingResultPage extends BasePage {
+    constructor (driver: WebDriver) {
 super (driver);
-this.url = BASE_URL + 'search/?q=' + "searchtext";
+this.url = `${BASE_URL}search/?q=ибандронат`;
     }
 
-public async getPaymentAndDeliverySection(): Promise <string> {
-    return await (await this.driver.findElement (By.xpath("//h1[@class='page-title h2']"))).getText();
+public async getHeader(): Promise <WebElement> {
+    return await this.driver.findElement (By.xpath("//h1[@class='page-title h2']"))
 }
 }
+
+export const searchingResultPage = new SearchingResultPage(driver);

@@ -8,7 +8,7 @@ export class CatalogPageBorbaSVrednymi extends BasePage {
     constructor (driver: WebDriver) {
 super (driver);
 
-this.url = BASE_URL + "catalog/borba-s-vrednymi-privychkami/";
+this.url = `${BASE_URL}catalog/borba-s-vrednymi-privychkami/`;
     }
 
 public async getItemTabeks(): Promise <WebElement> {
