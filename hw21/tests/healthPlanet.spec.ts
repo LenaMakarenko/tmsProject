@@ -1,22 +1,19 @@
-import { until, WebDriver, Builder, Capabilities} from "selenium-webdriver";
-//import { catalogPage } from "../pageObjects/catalogPage";
+import { WebDriver, Builder, Capabilities} from "selenium-webdriver";
 import { expect } from "chai";
-//import { navigationBar } from "../pageObjects/sections/navigationBar";
-//import { catalogPageBorbaSVrednymi } from "../pageObjects/catalogPage2";
-import { BasePage } from "../pageObjects/basePage";
 import { BASE_URL } from "../utils/constants";
 import { PageFactory } from "../pageObjects/pageFactory";
 import { PAGES } from "../utils/types";
 import { BasketPage } from "../pageObjects/basketPage";
 import { SearchingResultPage } from "../pageObjects/searchingResultPage";
+import { ItemPage } from "../pageObjects/itemPage";
 
 const homePage = PageFactory.getPage(PAGES.HOME);
 const basketPage = PageFactory.getPage(PAGES.BASKET) as BasketPage;
 const searchingResultPage = PageFactory.getPage(PAGES.SEARCHING_RESULT) as SearchingResultPage;
+const itemPage = PageFactory.getPage(PAGES.ITEM) as ItemPage;
 const numberOfItemsInBasket = 1;
 const textToInput = "нимесил";
 const headerText = `Результаты по запросу «${textToInput}»`;
-const urlItemToAddToCart = BASE_URL + "/p/bad-swiss-energy-neyrofors-forte-kapsuly-30/";
 
 describe("HealthPlanet Site Tests", () => {
 
@@ -30,6 +27,7 @@ await homePage.closeWindow();
  await basketPage.resetDriver(driver);
  await searchingResultPage.resetDriver(driver);
  await homePage.navigationBar.resetDriver(driver);
+ await itemPage.resetDriver(driver);
 });
 
 after(async () => {
@@ -60,17 +58,18 @@ after(async () => {
     expect(text).to.equal(headerText);
 });
     
-   it(`4 Should check the icon change 0 to ${numberOfItemsInBasket} when adding product to empty basket`, async () => {
+   it(`4 Should check the empty basket`, async () => {
     await homePage.visitPage();
     await homePage.maximizeWindow();
     await (await homePage.navigationBar.getBasketButton()).click();
     const emptyBasket = await (await basketPage.getTitleOfEmtyBasket()).getText();
     expect(emptyBasket).to.contain('нет товаров');
-
-
    });
 
-   // it("5 Should check that the button 'в корзину' changes color when was clicked", async () => {
-        
-  //  })
+   it(`5 Should check the icon change 0 to ${numberOfItemsInBasket} when adding product to basket`, async () => {
+   await itemPage.visitPage();
+   await itemPage.maximizeWindow();
+   await (await itemPage.getAddInBasketButton()).click();
+   await homePage.waitUntilWebElementContain(await homePage.navigationBar.getBasketNumberOfItem(), `${numberOfItemsInBasket}`);
+   })
 })

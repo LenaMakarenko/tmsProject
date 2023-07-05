@@ -29,7 +29,7 @@ export class BasePage {
        }
 
     public async navigateTo(urlToNavigate: string) {
-        await this.driver.navigate().to("urlToNavigate");
+        await this.driver.navigate().to(urlToNavigate);
        }
 
     public async waitUntilUrlContains(urlText:string) {
