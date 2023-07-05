@@ -12,14 +12,6 @@ export class NavigationBar {
     return this.driver.findElement(By.css("div.catalog-menu.js-class"));
   }
 
-  public async getSectionInCatalogByInnerText(sometext: string): Promise<WebElement> {
-    return this.driver.findElement(By.xpath(`//a[@class='hover-menu__link'][text()='${sometext}']`))
-  }
-
-  public async getNavigationButtonByInnerText(text: string): Promise<WebElement> {
-    return await this.driver.findElement(By.xpath(`//a[@class='main-nav__link '][@title="${text}"]`))
-  }
-
   public async getNavigationButtonOfCatalogByInnerText(text: string): Promise<WebElement> {
     return await this.driver.findElement(By.xpath(`//a[@class='main-nav__link '][@title="${text}"]`))
   }

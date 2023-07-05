@@ -5,14 +5,14 @@ import { By } from "selenium-webdriver";
 import { driver } from "../config/driver";
 
 export class SearchingResultPage extends BasePage {
-    constructor (driver: WebDriver) {
-super (driver);
-this.url = `${BASE_URL}search/?q=нимесил`;
+    constructor(driver: WebDriver) {
+        super(driver);
+        this.url = `${BASE_URL}search/?q=нимесил`;
     }
 
-public async getHeader(): Promise <WebElement> {
-    return await this.driver.findElement (By.xpath("//h1[@class='page-title h2']"))
-}
+    public async getHeader(): Promise<WebElement> {
+        return await this.driver.findElement(By.xpath("//h1[@class='page-title h2']"))
+    }
 }
 
 export const searchingResultPage = new SearchingResultPage(driver);
