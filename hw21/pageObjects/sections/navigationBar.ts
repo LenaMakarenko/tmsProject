@@ -31,6 +31,19 @@ public async getSearchField(): Promise <WebElement> {
 public async getFindButton(): Promise <WebElement> {
   return this.driver.findElement(By.css("a.search__btn span.hidden-xs"));
 }
+
+public async resetDriver(driver: WebDriver) {
+  this.driver = driver;
+ }
+
+public async getBasketButton(): Promise <WebElement> {
+  return this.driver.findElement(By.css("svg.symbol.symbol-tool-basket"));
+}
+
+public async getBasketNumberOfItem(): Promise <WebElement> {
+  return this.driver.findElement(By.xpath("//span[@class='header-tool__count js-basket-count']"));
+}
+
   //public async searchFor(text:string): Promise<void> {
    // await this.driver.actions()
 //(By.xpath(`//div/a[@class='hover-menu__link'][(text()=${sometext})]`));

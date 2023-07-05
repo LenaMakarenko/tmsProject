@@ -1,4 +1,4 @@
-import { WebDriver, until } from "selenium-webdriver";
+import { WebDriver, until, WebElement, WebElementCondition, Locator } from "selenium-webdriver";
 import { NavigationBar, navigationBar } from "./sections/navigationBar";
 
 export class BasePage {
@@ -24,11 +24,23 @@ export class BasePage {
      await this.driver.manage().window().maximize();
     }
 
+    public async resetDriver(driver: WebDriver) {
+        this.driver = driver;
+       }
+
+    public async navigateTo(urlToNavigate: string) {
+        await this.driver.navigate().to("urlToNavigate");
+       }
+
     public async waitUntilUrlContains(urlText:string) {
         return await this.driver.wait(until.urlContains(urlText))
     }
 
     public async waitUntilTitleContains(titleText:string) {
         return await this.driver.wait(until.urlContains(titleText))
+    }
+
+    public async waitUntilWebElementContain(element:WebElement, condition:string) {
+        await this.driver.wait(until.elementTextContains( element, condition));
     }
 }
