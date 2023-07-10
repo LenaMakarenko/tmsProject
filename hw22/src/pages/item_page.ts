@@ -2,11 +2,11 @@ import { baseUrl } from "../support/constants";
 import { BasePage } from "./base_page";
 
 
-export class HomePage extends BasePage {
+export class ItemPage extends BasePage {
     constructor() {
       super()  
 
-      this.url = baseUrl;
+      this.url = `${baseUrl}/p/bad-swiss-energy-neyrofors-forte-kapsuly-30/`;
       this.pageIdentifier = this.pageTitle
 
       get 

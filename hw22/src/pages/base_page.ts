@@ -1,7 +1,7 @@
 
 export class BasePage {
     protected url!: string;
-    protected pageIdentifier!: WebdriverIO.Element;
+    protected pageIdentifier!: Promise <WebdriverIO.Element>;
 
     get pageTitle() {
         return browser.getTitle();
