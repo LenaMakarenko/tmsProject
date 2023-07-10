@@ -6,6 +6,7 @@ import { BasketPage } from "../pageObjects/basketPage";
 import { SearchingResultPage } from "../pageObjects/searchingResultPage";
 import { ItemPage } from "../pageObjects/itemPage";
 import { textToInput } from "../utils/constants";
+import { navigationBar } from "../pageObjects/sections/navigationBar";
 
 const homePage = PageFactory.getPage(PAGES.HOME);
 const basketPage = PageFactory.getPage(PAGES.BASKET) as BasketPage;
@@ -26,6 +27,7 @@ describe("HealthPlanet Site Tests", () => {
       await basketPage.resetDriver(driver);
       await searchingResultPage.resetDriver(driver);
       await itemPage.resetDriver(driver);
+      await navigationBar.resetDriver(driver);
    });
 
    after(async () => {

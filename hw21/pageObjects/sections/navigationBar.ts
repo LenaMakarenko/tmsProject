@@ -35,6 +35,10 @@ export class NavigationBar {
   public async waitForNumberOfItemsInBusketToBe(numberOfItems: string): Promise<WebElement> {
     return await this.driver.wait(until.elementTextContains(await this.getNumberOfItemsInBusketLabel(), numberOfItems));
   }
+
+  public async resetDriver(driver: WebDriver) {
+    this.driver = driver;
+  }
 }
 
 export const navigationBar = new NavigationBar(driver);
