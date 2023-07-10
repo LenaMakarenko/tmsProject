@@ -25,7 +25,6 @@ describe("HealthPlanet Site Tests", () => {
       await homePage.resetDriver(driver);
       await basketPage.resetDriver(driver);
       await searchingResultPage.resetDriver(driver);
-      await homePage.navigationBar.resetDriver(driver);
       await itemPage.resetDriver(driver);
    });
 

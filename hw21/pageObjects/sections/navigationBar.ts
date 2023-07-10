@@ -24,10 +24,6 @@ export class NavigationBar {
     return this.driver.findElement(By.css("a.search__btn span.hidden-xs"));
   }
 
-  public async resetDriver(driver: WebDriver) {
-    this.driver = driver;
-  }
-
   public async getBasketButton(): Promise<WebElement> {
     return this.driver.findElement(By.css("svg.symbol.symbol-tool-basket"));
   }
