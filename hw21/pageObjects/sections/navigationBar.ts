@@ -1,4 +1,4 @@
-import { By, WebDriver, WebElement } from "selenium-webdriver";
+import { By, WebDriver, WebElement, until } from "selenium-webdriver";
 import { driver } from "../../config/driver";
 
 export class NavigationBar {
@@ -32,8 +32,12 @@ export class NavigationBar {
     return this.driver.findElement(By.css("svg.symbol.symbol-tool-basket"));
   }
 
-  public async getBasketNumberOfItem(): Promise<WebElement> {
+  public async getNumberOfItemsInBusketLabel(): Promise<WebElement> {
     return this.driver.findElement(By.xpath("//span[@class='header-tool__count js-basket-count']"));
+  }
+
+  public async waitForNumberOfItemsInBusketToBe(numberOfItems: string): Promise<WebElement> {
+    return await this.driver.wait(until.elementTextContains(await this.getNumberOfItemsInBusketLabel(), numberOfItems));
   }
 }
 

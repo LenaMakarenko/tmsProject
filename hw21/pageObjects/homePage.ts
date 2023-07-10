@@ -10,11 +10,11 @@ export class HomePage extends BasePage {
         this.url = BASE_URL;
     }
 
-    public async writesTextInTheCatalogInputField(textToFind: string): Promise<void> {
+    public async writeTextInTheCatalogInputField(textToFind: string): Promise<void> {
         await (await this.driver.findElement(By.css(".search__row  .search__input"))).sendKeys(textToFind);
     }
 
-    public async clickToTheSearchButton(): Promise<void> {
+    public async clickOnTheSearchButton(): Promise<void> {
         await (await this.driver.findElement(By.css("a.search__btn span.hidden-xs"))).click();
     }
 }

@@ -5,13 +5,13 @@ import { PAGES } from "../utils/types";
 import { BasketPage } from "../pageObjects/basketPage";
 import { SearchingResultPage } from "../pageObjects/searchingResultPage";
 import { ItemPage } from "../pageObjects/itemPage";
+import { textToInput } from "../utils/constants";
 
 const homePage = PageFactory.getPage(PAGES.HOME);
 const basketPage = PageFactory.getPage(PAGES.BASKET) as BasketPage;
 const searchingResultPage = PageFactory.getPage(PAGES.SEARCHING_RESULT) as SearchingResultPage;
 const itemPage = PageFactory.getPage(PAGES.ITEM) as ItemPage;
 const numberOfItemsInBasket = 1;
-const textToInput = "нимесил";
 const headerText = `Результаты по запросу «${textToInput}»`;
 
 describe("HealthPlanet Site Tests", () => {
@@ -69,6 +69,6 @@ describe("HealthPlanet Site Tests", () => {
       await itemPage.visitPage();
       await itemPage.maximizeWindow();
       await (await itemPage.getAddInBasketButton()).click();
-      await homePage.waitUntilWebElementContain(await homePage.navigationBar.getBasketNumberOfItem(), `${numberOfItemsInBasket}`);
+      await homePage.navigationBar.waitForNumberOfItemsInBusketToBe(`${numberOfItemsInBasket}`);
    })
 })
