@@ -1,7 +1,9 @@
+import { navigationBar, NavigationBar } from "./sections/navigation_bar";
 
 export class BasePage {
     protected url!: string;
     protected pageIdentifier!: Promise <WebdriverIO.Element>;
+    public navigationBar: NavigationBar = navigationBar;
 
     get pageTitle() {
         return browser.getTitle();
@@ -13,6 +15,10 @@ export class BasePage {
 
     public async visit() {
         await browser.url(this.url);
+    }
+
+    public async waitUntilUrlContain() {
+        
     }
 
     public async waitForPage() {

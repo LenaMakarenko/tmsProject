@@ -12,3 +12,5 @@ export class ItemPage extends BasePage {
       get 
     }
 }
+
+export const itemPage = new ItemPage();

@@ -10,9 +10,9 @@ export class NavigationBar {
         return $("div.catalog-menu.js-class");
     }
 
-    get theCatalogButton() {
+    get theCatalogButto() {
         return $("div.catalog-menu.js-class");
     }
-
-
  }
+
+ export const navigationBar = new NavigationBar();

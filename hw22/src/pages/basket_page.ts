@@ -12,3 +12,5 @@ export class BasketPage extends BasePage {
       get 
     }
 }
+
+export const basketPage = new BasketPage();

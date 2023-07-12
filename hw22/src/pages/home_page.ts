@@ -12,3 +12,5 @@ export class HomePage extends BasePage {
       get 
     }
 }
+
+export const homePage = new HomePage();

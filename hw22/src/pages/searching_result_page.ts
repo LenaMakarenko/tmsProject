@@ -13,3 +13,5 @@ export class SearchingResultPage extends BasePage {
       }
     }
 }
+
+export const searchingResultPage = new SearchingResultPage();

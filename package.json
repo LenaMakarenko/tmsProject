@@ -21,7 +21,7 @@
     "hw18:test": "jest --config='./hw18/jest.config.js'",
     "hw19:test": "mocha --config='hw19/mocharc.json'",
     "hw21:test": "mocha --config='hw21/config/mocharc.json'",
-    "wdio": ""
+    "hw22:test": "wdio ./hw22/config/wdio.conf.ts"
   },
   "repository": {
     "type": "git",
