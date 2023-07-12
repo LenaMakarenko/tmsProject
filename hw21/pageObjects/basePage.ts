@@ -1,4 +1,4 @@
-import { WebDriver, until, WebElement, WebElementCondition, Locator } from "selenium-webdriver";
+import { WebDriver, until, WebElement} from "selenium-webdriver";
 import { NavigationBar, navigationBar } from "./sections/navigationBar";
 
 export class BasePage {

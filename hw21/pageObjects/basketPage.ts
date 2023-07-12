@@ -1,7 +1,7 @@
 import { WebDriver, WebElement } from "selenium-webdriver";
 import { BasePage } from "./basePage";
 import { BASE_URL } from "../utils/constants";
-import { By, until } from "selenium-webdriver";
+import { By } from "selenium-webdriver";
 import { driver } from "../config/driver";
 
 export class BasketPage extends BasePage {
