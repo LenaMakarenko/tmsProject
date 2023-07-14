@@ -1,4 +1,5 @@
 import type { Options } from '@wdio/types'
+import { rmSync } from 'fs';
 
 export const config: Options.Testrunner = {
     //
@@ -66,7 +67,7 @@ export const config: Options.Testrunner = {
         browserName: 'chrome',
         acceptInsecureCerts: true,
         'goog:chromeOptions': {
-            args: ['--start-maximized']
+            args: ['--window-size=1920,1080', '--disable-gpu', '--headless']
         }
     }],
     //
@@ -180,8 +181,10 @@ export const config: Options.Testrunner = {
      * @param {object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
-    // },
+    onPrepare: function () {
+        rmSync("wdio/allure-report", {recursive: true, force: true});
+        rmSync("wdio/allure-results", {recursive: true, force: true});
+     },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.
@@ -265,8 +268,11 @@ export const config: Options.Testrunner = {
      * @param {number}             result.duration  duration of scenario in milliseconds
      * @param {object}             context          Cucumber World object
      */
-    // afterStep: function (step, scenario, result, context) {
-    // },
+    afterStep: async function (step, scenario, result, context) {
+        if (result.error) {
+            await browser.takeScreenshot();
+        }
+     },
     /**
      *
      * Runs after a Cucumber Scenario.
