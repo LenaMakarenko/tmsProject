@@ -15,11 +15,7 @@ export class BasePage {
     }
 
     public async visit() {
-        return browser.getUrl();
-    }
-
-    public async waitUntilUrlContain() {
-        
+        await browser.url(this.url);
     }
 
     public async waitForPage(reverse = false) {

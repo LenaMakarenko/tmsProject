@@ -6,7 +6,7 @@ export class NavigationBar {
         return $("a.main-nav__link[href='/oplata-i-dostavka/']");
     }
 
-    get theCatalogButton() {
+    get catalogButton() {
         return $("div.catalog-menu.js-class");
     }
 

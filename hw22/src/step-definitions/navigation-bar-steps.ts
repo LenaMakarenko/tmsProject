@@ -4,7 +4,7 @@ import { navigationBar } from "../pages/sections/navigation_bar";
 import { PageFactory } from "../pages/page_factory";
 import { PAGES } from "../support/types";
 
-Given (/^And click 'оплата и доставка' button in the navigation bar$/, async () => {
+When (/^The user clicks "payment and delivery" button in the navigation bar$/, async () => {
     await (await navigationBar.paymentAndDeliveryButton).click()
 })
 
