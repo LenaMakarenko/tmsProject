@@ -20,7 +20,8 @@
     "hw17-test-jest": "jest --config='./hw17/jest.config.js'",
     "hw18:test": "jest --config='./hw18/jest.config.js'",
     "hw19:test": "mocha --config='hw19/mocharc.json'",
-    "hw21:test": "mocha --config='hw21/config/mocharc.json'"
+    "hw21:test": "mocha --config='hw21/config/mocharc.json'",
+    "hw24:open": "cypress open --config-file=./hw24/cypress.config.ts"
   },
   "repository": {
     "type": "git",
@@ -34,13 +35,14 @@
   "homepage": "https://github.com/LenaMakarenko/tmsProject#readme",
   "devDependencies": {
     "@types/chai": "^4.3.5",
+    "@types/jest": "^29.5.1",
     "@types/mocha": "^10.0.1",
     "@types/node": "^20.2.5",
     "@types/node-fetch": "^2.6.3",
     "@types/superagent": "^4.1.17",
     "ajv": "^8.12.0",
     "chai": "^4.3.7",
-    "@types/jest": "^29.5.1",
+    "cypress": "^12.17.3",
     "jest": "^29.5.0",
     "mocha": "^10.2.0",
     "node-fetch": "^2.6.9",
@@ -54,5 +56,4 @@
     "selenium-webdriver": "^4.9.2",
     "ts-node": "^10.9.1"
   }
-  }
-
+}
