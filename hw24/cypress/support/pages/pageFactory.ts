@@ -1,7 +1,6 @@
 import { PAGES } from "../types/types";
 import { basketPage } from "./basket_page";
 import { homePage } from "./home_page";
-import { itemPage } from "./item_page";
 
 export class PageFactory {
     constructor () {}
@@ -11,8 +10,6 @@ export class PageFactory {
                 return homePage;
             case PAGES.BASKET:
                 return basketPage;
-            case PAGES.ITEM:
-                return itemPage;
             default: 
                 return 'Not found'
         }

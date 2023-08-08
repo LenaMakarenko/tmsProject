@@ -10,14 +10,6 @@ export class HomePage extends BasePage {
     public visitPage() {
         cy.visit(this.url);
     }
-
-    public getPageTitle () {
-        return cy.title();
-    }
-    public waitForTitleToInclude (title:string) {
-        this.getPageTitle().should("equal", title);
-    }
-
 }
 
 export const homePage = new HomePage();

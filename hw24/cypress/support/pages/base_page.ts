@@ -13,11 +13,4 @@ export class BasePage {
         cy.visit(this.url);
     }
 
-    public getPageTitle () {
-        return cy.title();
-    }
-    public waitForTitleToInclude (title:string) {
-        this.getPageTitle().should("include", title);
-    }
-
 }

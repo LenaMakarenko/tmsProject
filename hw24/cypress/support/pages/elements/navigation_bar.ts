@@ -1,12 +1,16 @@
-import { textToSearch } from "../../constants";
+
 import { NAVIGATION_BUTTON_NAME } from "../../types/types";
 
 export class NavigationBar {
-    constructor () {}
+    constructor() { }
 
     public getMainNavigationButtonByInnerText(innerText: NAVIGATION_BUTTON_NAME) {
         return cy.get("a.main-nav__link").contains(innerText);
-      }
+    }
+
+    public getAllSectionsOfMainNavigationBar() {
+        return cy.get("a.main-nav__link");
+    }
 
     public clickOnMainNavigationButtonByInnerText(innerText: NAVIGATION_BUTTON_NAME) {
         return this.getMainNavigationButtonByInnerText(innerText).click();
@@ -20,20 +24,16 @@ export class NavigationBar {
         return this.getCatalogButton().click();
     }
 
-    public writeItemInSearchField(text:string) {
-        cy.get(".search__row  .search__input").type(text)
+    public writeItemInSearchField(text: string) {
+        cy.get(".search__row  .search__input").type(text);
     }
 
     public getFindButton() {
-        return cy.get("a.search__btn span.hidden-xs")
+        return cy.get("a.search__btn span.hidden-xs");
     }
 
     public clickOnBasket() {
-        return cy.get("svg.symbol.symbol-tool-basket").click()
+        return cy.get("svg.symbol.symbol-tool-basket").click();
     }
-
-    public getNumberOfItemsInBusketLabel() {
-        return cy.get('span.header-tool__count.js-basket-count');
-      }
 
 }
