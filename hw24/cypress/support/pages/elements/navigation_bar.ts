@@ -27,4 +27,13 @@ export class NavigationBar {
     public getFindButton() {
         return cy.get("a.search__btn span.hidden-xs")
     }
+
+    public clickOnBasket() {
+        return cy.get("svg.symbol.symbol-tool-basket").click()
+    }
+
+    public getNumberOfItemsInBusketLabel() {
+        return cy.get('span.header-tool__count.js-basket-count');
+      }
+
 }

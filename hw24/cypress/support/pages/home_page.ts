@@ -1,5 +1,4 @@
 import { BasePage } from "./base_page";
-import { NavigationBar } from "./elements/navigation_bar";
 
 export class HomePage extends BasePage {
     
