@@ -16,7 +16,7 @@ export class HomePage extends BasePage {
         return cy.title();
     }
     public waitForTitleToInclude (title:string) {
-        this.getPageTitle().should("include", title);
+        this.getPageTitle().should("equal", title);
     }
 
 }

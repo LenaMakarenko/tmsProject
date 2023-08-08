@@ -1,3 +1,4 @@
+import { textToSearch } from "../../constants";
 import { NAVIGATION_BUTTON_NAME } from "../../types/types";
 
 export class NavigationBar {
@@ -17,5 +18,13 @@ export class NavigationBar {
 
     public clickOnCatalogButton() {
         return this.getCatalogButton().click();
+    }
+
+    public writeItemInSearchField(text:string) {
+        cy.get(".search__row  .search__input").type(text)
+    }
+
+    public getFindButton() {
+        return cy.get("a.search__btn span.hidden-xs")
     }
 }

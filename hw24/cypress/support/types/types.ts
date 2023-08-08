@@ -12,5 +12,6 @@ export enum NAVIGATION_BUTTON_NAME {
 export enum PAGES {
     HOME = "Home",  
     BASKET = "Busket",
-    ITEM = "Item"
+    ITEM = "Item",
+    SEARCHING_RESULT = "Searching_Result"
 }
