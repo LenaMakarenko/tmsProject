@@ -1,6 +1,6 @@
 import { PageFactory } from "../support/pages/pageFactory";
 import { PAGES } from "../support/types/types";
-import { basketPage, BasketPage} from "../support/pages/basket_page";
+import { BasketPage} from "../support/pages/basket_page";
 import { HomePage } from "../support/pages/home_page";
 
 describe('HealthPlanet Site Tests - BasketPage', () => {
