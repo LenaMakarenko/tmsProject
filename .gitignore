@@ -1,3 +1,5 @@
 node_modules/
-screenshots
+**/*/screenshots/
 drivers
+*.mp4
+**\*\cypress\videos
