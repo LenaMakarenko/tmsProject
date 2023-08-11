@@ -11,14 +11,13 @@ describe('HealthPlanet Site Tests - BasketPage', () => {
     it(`Should check the empty basket`, () => {
         const basketPage = PageFactory.getPage(PAGES.BASKET) as BasketPage
         const homePage = PageFactory.getPage(PAGES.HOME) as HomePage
-        cy.viewport(1280, 720)
         homePage.visitPage();
         homePage.navigationBar.clickOnBasket();
         cy.wait('@tracker').then(data => {
         expect(data.response?.statusCode).to.equal(200);
         expect(data.response?.body.length).to.equal(2);
         
-        basketPage.getTitleOfEmptyBasket().should('have.text', " В корзине\n нет товаров\n ")
+        basketPage.getTitleOfEmptyBasketElement().should('have.text', " В корзине\n нет товаров\n ")
     })
 })
 })

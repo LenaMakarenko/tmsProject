@@ -6,10 +6,6 @@ export class HomePage extends BasePage {
         super();
         this.url = "/";
     }
-
-    public visitPage() {
-        cy.visit(this.url);
-    }
 }
 
 export const homePage = new HomePage();

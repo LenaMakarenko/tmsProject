@@ -8,7 +8,6 @@ describe('HealthPlanet Site Tests - HomePage', () => {
     
     it('Should go to payment and delivery section in the navigation menu', () => {
         const homePage = PageFactory.getPage(PAGES.HOME) as HomePage
-        cy.viewport(1280, 720)
         homePage.visitPage();
         homePage.navigationBar.clickOnMainNavigationButtonByInnerText(NAVIGATION_BUTTON_NAME.PAYMENT_AND_DELIVERY);
         cy.url().should('include', '/oplata-i-dostavka/')
@@ -16,14 +15,12 @@ describe('HealthPlanet Site Tests - HomePage', () => {
 
     it('Should check all sections in the navigation menu', () => {
         const homePage = PageFactory.getPage(PAGES.HOME) as HomePage
-        cy.viewport(1280, 720)
         homePage.visitPage();
         homePage.navigationBar.getAllSectionsOfMainNavigationBar().should('have.length', 7)
     })
 
     it("Should check that the catalog button opens correctly", () => {
         const homePage = PageFactory.getPage(PAGES.HOME) as HomePage
-        cy.viewport(1280, 720)
         homePage.visitPage()
         homePage.navigationBar.clickOnCatalogButton();
         homePage.navigationBar.getCatalogButton().should('have.class', 'open-catalog')
@@ -31,7 +28,6 @@ describe('HealthPlanet Site Tests - HomePage', () => {
 
     it("Should check search input field with non-existent value", async () => {
         const homePage = PageFactory.getPage(PAGES.HOME) as HomePage
-        cy.viewport(1280, 720)
         homePage.visitPage()
         homePage.navigationBar.writeItemInSearchField(textToSearch);
         homePage.navigationBar.getFindButton().click();

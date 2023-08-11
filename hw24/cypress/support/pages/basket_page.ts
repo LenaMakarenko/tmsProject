@@ -8,11 +8,7 @@ export class BasketPage extends BasePage {
         this.url = "/order/";
     }
 
-    public visitPage() {
-        cy.visit(this.url);
-    }
-
-    public getTitleOfEmptyBasket() {
+    public getTitleOfEmptyBasketElement() {
         return cy.get('h1.basket-page__title')
     }
 }

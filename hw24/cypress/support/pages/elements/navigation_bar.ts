@@ -13,7 +13,7 @@ export class NavigationBar {
     }
 
     public clickOnMainNavigationButtonByInnerText(innerText: NAVIGATION_BUTTON_NAME) {
-        return this.getMainNavigationButtonByInnerText(innerText).click();
+         this.getMainNavigationButtonByInnerText(innerText).click();
     }
 
     public getCatalogButton() {
@@ -21,7 +21,7 @@ export class NavigationBar {
     }
 
     public clickOnCatalogButton() {
-        return this.getCatalogButton().click();
+         this.getCatalogButton().click();
     }
 
     public writeItemInSearchField(text: string) {
@@ -33,7 +33,7 @@ export class NavigationBar {
     }
 
     public clickOnBasket() {
-        return cy.get("svg.symbol.symbol-tool-basket").click();
+         cy.get("svg.symbol.symbol-tool-basket").click();
     }
 
 }

@@ -12,6 +12,8 @@ export default defineConfig({
     screenshotsFolder: `${assetsFolder}/screenshots`,
     fixturesFolder: "hw24/cypress/fixtures",
     reporter: "spec",
+    viewportWidth: 1280,
+    viewportHeight: 720,
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
