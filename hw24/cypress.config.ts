@@ -10,7 +10,6 @@ export default defineConfig({
     video:true,
     downloadsFolder:`${assetsFolder}/downloads`,
     screenshotsFolder: `${assetsFolder}/screenshots`,
-    fixturesFolder: "hw24/cypress/fixtures",
     reporter: "spec",
     viewportWidth: 1280,
     viewportHeight: 720,

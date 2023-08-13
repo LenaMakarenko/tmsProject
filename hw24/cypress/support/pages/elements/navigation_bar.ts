@@ -1,5 +1,5 @@
 
-import { NAVIGATION_BUTTON_NAME } from "../../types/types";
+import { MAIN_CATALOG_NAVIGATION_ITEM, NAVIGATION_BUTTON_NAME } from "../../types/types";
 
 export class NavigationBar {
     constructor() { }
@@ -34,6 +34,10 @@ export class NavigationBar {
 
     public clickOnBasket() {
          cy.get("svg.symbol.symbol-tool-basket").click();
+    }
+
+    public getNavigationBarItemOfCatalogByInnerText(catalogText:MAIN_CATALOG_NAVIGATION_ITEM) {
+        return cy.get(`div[title='${catalogText}']`)
     }
 
 }

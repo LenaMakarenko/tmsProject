@@ -1,7 +1,7 @@
 import { textToSearch } from "../support/constants";
 import { HomePage } from "../support/pages/home_page";
 import { PageFactory } from "../support/pages/pageFactory";
-import { PAGES, NAVIGATION_BUTTON_NAME } from "../support/types/types";
+import { PAGES, NAVIGATION_BUTTON_NAME, MAIN_CATALOG_NAVIGATION_ITEM } from "../support/types/types";
 const headerLocator = 'h1.page-title'
 
 describe('HealthPlanet Site Tests - HomePage', () => {
@@ -11,12 +11,15 @@ describe('HealthPlanet Site Tests - HomePage', () => {
         homePage.visitPage();
         homePage.navigationBar.clickOnMainNavigationButtonByInnerText(NAVIGATION_BUTTON_NAME.PAYMENT_AND_DELIVERY);
         cy.url().should('include', '/oplata-i-dostavka/')
+        homePage.navigationBar.getAllSectionsOfMainNavigationBar().should('have.length', 7)
     })
 
-    it('Should check all sections in the navigation menu', () => {
+    it('Should check hover menu of catalog navigation bar items', () => {
         const homePage = PageFactory.getPage(PAGES.HOME) as HomePage
         homePage.visitPage();
-        homePage.navigationBar.getAllSectionsOfMainNavigationBar().should('have.length', 7)
+        homePage.navigationBar.getNavigationBarItemOfCatalogByInnerText(MAIN_CATALOG_NAVIGATION_ITEM.MEDICINES)
+        .parent('li')
+        .should("have.attr", "data-class", 'main-menu-hover')
     })
 
     it("Should check that the catalog button opens correctly", () => {

@@ -13,3 +13,12 @@ export enum PAGES {
     HOME = "Home",  
     BASKET = "Basket"
 }
+
+export enum MAIN_CATALOG_NAVIGATION_ITEM {
+    SUNSCREEN = "Солнцезащитные средства",
+    MEDICINES = "Лекарственные и профилактические средства",
+    VITAMINES = "Витамины и БАДы",
+    BEAUTY = "Красота и уход",
+    OPTICS =  "Оптика"
+
+}
