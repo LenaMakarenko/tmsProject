@@ -37,7 +37,7 @@ export class NavigationBar {
     }
 
     public getNavigationBarItemOfCatalogByInnerText(catalogText:MAIN_CATALOG_NAVIGATION_ITEM) {
-        return cy.get(`div[title='${catalogText}']`)
+        return cy.getElementByTitleItem('div', MAIN_CATALOG_NAVIGATION_ITEM.MEDICINES)
     }
 
 }
