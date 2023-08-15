@@ -6,7 +6,7 @@ export default defineConfig({
     supportFile: "hw24/cypress/support/index.ts",
     specPattern:"hw24/cypress/e2e/**/*.cy.ts",
     defaultCommandTimeout: defaultTimeout * 2,
-    baseUrl,
+    baseUrl: baseUrl,
     video:true,
     downloadsFolder:`${assetsFolder}/downloads`,
     screenshotsFolder: `${assetsFolder}/screenshots`,
