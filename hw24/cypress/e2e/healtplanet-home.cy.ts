@@ -17,7 +17,7 @@ describe('HealthPlanet Site Tests - HomePage', () => {
     })
 
     it('Should check hover menu of catalog navigation bar items', () => {
-        homePage.navigationBar.getNavigationBarItemOfCatalogByInnerText(MAIN_CATALOG_NAVIGATION_ITEM.MEDICINES)
+        homePage.navigationBar.getNavigationBarItemOfCatalogByTitleText(MAIN_CATALOG_NAVIGATION_ITEM.MEDICINES)
         .parent('li')
         .should("have.attr", "data-class", 'main-menu-hover')
     })

@@ -36,8 +36,8 @@ export class NavigationBar {
          cy.get("svg.symbol.symbol-tool-basket").click();
     }
 
-    public getNavigationBarItemOfCatalogByInnerText(catalogText:MAIN_CATALOG_NAVIGATION_ITEM) {
-        return cy.getElementByTitleItem('div', MAIN_CATALOG_NAVIGATION_ITEM.MEDICINES)
+    public getNavigationBarItemOfCatalogByTitleText(titleText:MAIN_CATALOG_NAVIGATION_ITEM) {
+        return cy.getElementByTitleAttribute('div', MAIN_CATALOG_NAVIGATION_ITEM.MEDICINES)
     }
 
 }
