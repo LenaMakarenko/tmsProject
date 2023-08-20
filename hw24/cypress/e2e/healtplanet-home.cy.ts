@@ -1,7 +1,7 @@
 import { textToSearch } from "../support/constants";
 import { HomePage, homePage } from "../support/pages/home_page";
 import { PageFactory } from "../support/pages/pageFactory";
-import { PAGES, NAVIGATION_BUTTON_NAME, MAIN_CATALOG_NAVIGATION_ITEM } from "../support/types/types";
+import { PAGES, NAVIGATION_BUTTON_NAME, MAIN_CATALOG_NAVIGATION_ITEM, HOVER_ITEMS_OF_MEDICINES } from "../support/types/types";
 const headerLocator = 'h1.page-title'
 
 describe('HealthPlanet Site Tests - HomePage', () => {
@@ -20,6 +20,7 @@ describe('HealthPlanet Site Tests - HomePage', () => {
         homePage.navigationBar.getNavigationBarItemOfCatalogByTitleText(MAIN_CATALOG_NAVIGATION_ITEM.MEDICINES)
         .parent('li')
         .should("have.attr", "data-class", 'main-menu-hover')
+        cy.contains(HOVER_ITEMS_OF_MEDICINES.ANTIBIOTIC).click({force:true})
     })
 
     it("Should check that the catalog button opens correctly", () => {

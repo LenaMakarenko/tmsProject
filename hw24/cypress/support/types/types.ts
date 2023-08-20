@@ -22,3 +22,11 @@ export enum MAIN_CATALOG_NAVIGATION_ITEM {
     OPTICS =  "Оптика"
 
 }
+
+export enum HOVER_ITEMS_OF_MEDICINES {
+    ANTIBIOTIC = "Антибиотики и противомикробные",
+    ANTISEPTIC = "Антисептики и дезинфектанты",
+    BAD_HABITS = "Борьба с вредными привычками",
+    DERMATOLOGY = "Дерматология",
+    GASTROINTESTINAL_TRACT = "Желудочно-кишечный тракт"
+}
